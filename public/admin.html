@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>SILA TECH Admin</title>
+
+<link
+  rel="stylesheet"
+  href="/style.css"
+>
+
+<style>
+
+.admin-page {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding:
+    50px 20px
+    100px;
+
+}
+
+
+.admin-panel {
+
+  background:
+    #0b111a;
+
+  border:
+    1px solid
+    #182536;
+
+  border-radius:
+    18px;
+
+  padding:
+    25px;
+
+  margin-bottom:
+    25px;
+
+}
+
+
+.admin-panel h1,
+.admin-panel h2 {
+
+  margin-top: 0;
+
+}
+
+
+.form-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 15px;
+
+}
+
+
+.form-group {
+
+  margin-bottom:
+    15px;
+
+}
+
+
+.form-group.full {
+
+  grid-column:
+    1 / -1;
+
+}
+
+
+label {
+
+  display: block;
+
+  margin-bottom:
+    7px;
+
+  color:
+    #aeb9c8;
+
+  font-size:
+    13px;
+
+}
+
+
+input,
+textarea {
+
+  width: 100%;
+
+  padding:
+    13px;
+
+  border:
+    1px solid
+    #1b2b3e;
+
+  border-radius:
+    10px;
+
+  background:
+    #060a10;
+
+  color:
+    white;
+
+  outline:
+    none;
+
+}
+
+
+textarea {
+
+  min-height:
+    100px;
+
+  resize:
+    vertical;
+
+}
+
+
+input:focus,
+textarea:focus {
+
+  border-color:
+    #3477c4;
+
+}
+
+
+.admin-button {
+
+  padding:
+    12px 18px;
+
+  border: 0;
+
+  border-radius:
+    10px;
+
+  color:
+    white;
+
+  background:
+    #174b8c;
+
+  cursor:
+    pointer;
+
+  font-weight:
+    700;
+
+}
+
+
+.logout-button {
+
+  background:
+    #7f1d1d;
+
+}
+
+
+.message {
+
+  color:
+    #8fa2ba;
+
+  font-size:
+    13px;
+
+}
+
+
+.projects-table {
+
+  width: 100%;
+
+  border-collapse:
+    collapse;
+
+}
+
+
+.projects-table th,
+.projects-table td {
+
+  padding:
+    13px 8px;
+
+  text-align:
+    left;
+
+  border-bottom:
+    1px solid
+    #182536;
+
+  font-size:
+    13px;
+
+}
+
+
+.projects-table td {
+
+  color:
+    #aeb9c8;
+
+}
+
+
+.project-thumb {
+
+  width:
+    55px;
+
+  height:
+    40px;
+
+  object-fit:
+    cover;
+
+  border-radius:
+    7px;
+
+}
+
+
+.delete-btn {
+
+  padding:
+    8px 10px;
+
+  border:
+    0;
+
+  border-radius:
+    8px;
+
+  color:
+    white;
+
+  background:
+    #7f1d1d;
+
+  cursor:
+    pointer;
+
+}
+
+
+@media (
+  max-width: 700px
+) {
+
+  .form-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .form-group.full {
+
+    grid-column:
+      auto;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<header class="navbar">
+
+  <a
+    href="/"
+    class="logo"
+  >
+
+    <span class="logo-icon">
+      S
+    </span>
+
+    SILA TECH ADMIN
+
+  </a>
+
+
+  <a href="/">
+    View Website
+  </a>
+
+</header>
+
+
+
+<main class="admin-page">
+
+
+<!-- LOGIN -->
+
+<section
+  id="loginPanel"
+  class="admin-panel"
+>
+
+  <div class="small-title">
+    CONTROL PANEL
+  </div>
+
+
+  <h1>
+    Admin Login
+  </h1>
+
+
+  <form id="loginForm">
+
+
+    <div class="form-group">
+
+      <label>
+        Username
+      </label>
+
+      <input
+        id="username"
+        type="text"
+        required
+      >
+
+    </div>
+
+
+
+    <div class="form-group">
+
+      <label>
+        Password
+      </label>
+
+      <input
+        id="password"
+        type="password"
+        required
+      >
+
+    </div>
+
+
+    <button
+      class="admin-button"
+      type="submit"
+    >
+      Login
+    </button>
+
+
+    <p
+      id="loginMessage"
+      class="message"
+    ></p>
+
+
+  </form>
+
+</section>
+
+
+
+<!-- DASHBOARD -->
+
+<section
+  id="dashboard"
+  style="display:none"
+>
+
+
+<div class="admin-panel">
+
+
+  <div
+    style="
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+    "
+  >
+
+    <div>
+
+      <div class="small-title">
+        PROJECT MANAGER
+      </div>
+
+      <h1>
+        Add Project
+      </h1>
+
+    </div>
+
+
+    <button
+      id="logoutButton"
+      class="admin-button logout-button"
+    >
+      Logout
+    </button>
+
+  </div>
+
+
+
+  <form
+    id="projectForm"
+    enctype="multipart/form-data"
+  >
+
+
+    <div class="form-grid">
+
+
+      <div class="form-group">
+
+        <label>
+          Name
+        </label>
+
+        <input
+          name="name"
+          placeholder="SILA MD"
+          required
+        >
+
+      </div>
+
+
+
+      <div class="form-group">
+
+        <label>
+          Path
+        </label>
+
+        <input
+          name="path"
+          placeholder="/bot"
+          required
+        >
+
+      </div>
+
+
+
+      <div class="form-group full">
+
+        <label>
+          Target URL
+        </label>
+
+        <input
+          name="target"
+          placeholder="https://aaaasilamin-0ac06c45a8b6.herokuapp.com"
+          required
+        >
+
+      </div>
+
+
+
+      <div class="form-group full">
+
+        <label>
+          Description
+        </label>
+
+        <textarea
+          name="description"
+          placeholder="Elezea project yako hapa..."
+        ></textarea>
+
+      </div>
+
+
+
+      <div class="form-group full">
+
+        <label>
+          Post Link
+        </label>
+
+        <input
+          name="postUrl"
+          placeholder="https://example.com/post"
+        >
+
+      </div>
+
+
+
+      <div class="form-group full">
+
+        <label>
+          Upload Post / Project Image
+        </label>
+
+        <input
+          name="image"
+          type="file"
+          accept="
+            image/jpeg,
+            image/png,
+            image/webp,
+            image/gif
+          "
+        >
+
+      </div>
+
+
+    </div>
+
+
+
+    <button
+      type="submit"
+      class="admin-button"
+    >
+      + Add Project
+    </button>
+
+
+    <p
+      id="formMessage"
+      class="message"
+    ></p>
+
+
+  </form>
+
+
+</div>
+
+
+
+<!-- PROJECT LIST -->
+
+<div class="admin-panel">
+
+
+  <div class="small-title">
+    PROJECTS
+  </div>
+
+
+  <h2>
+    Published Projects
+  </h2>
+
+
+  <div
+    style="
+      overflow-x:auto;
+    "
+  >
+
+
+    <table
+      class="projects-table"
+    >
+
+
+      <thead>
+
+        <tr>
+
+          <th>
+            Image
+          </th>
+
+          <th>
+            Name
+          </th>
+
+          <th>
+            Path
+          </th>
+
+          <th>
+            Target
+          </th>
+
+          <th>
+            Action
+          </th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody
+        id="projectsTable"
+      >
+
+      </tbody>
+
+
+    </table>
+
+
+  </div>
+
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+
+// =====================================================
+// API HELPER
+// =====================================================
+
+async function api(
+  url,
+  options = {}
+) {
+
+  const response =
+    await fetch(
+      url,
+      options
+    );
+
+
+  let data = {};
+
+  try {
+
+    data =
+      await response.json();
+
+  } catch {
+
+  }
+
+
+  if (!response.ok) {
+
+    throw new Error(
+      data.error ||
+      "Request failed"
+    );
+
+  }
+
+
+  return data;
+
+}
+
+
+
+// =====================================================
+// CHECK ADMIN SESSION
+// =====================================================
+
+async function checkLogin() {
+
+  try {
+
+    await api(
+      "/api/admin/projects"
+    );
+
+
+    showDashboard();
+
+
+  } catch {
+
+    document
+      .getElementById(
+        "loginPanel"
+      )
+      .style.display =
+      "block";
+
+  }
+
+}
+
+
+
+// =====================================================
+// SHOW DASHBOARD
+// =====================================================
+
+function showDashboard() {
+
+  document
+    .getElementById(
+      "loginPanel"
+    )
+    .style.display =
+    "none";
+
+
+  document
+    .getElementById(
+      "dashboard"
+    )
+    .style.display =
+    "block";
+
+
+  loadProjects();
+
+}
+
+
+
+// =====================================================
+// LOGIN
+// =====================================================
+
+document
+  .getElementById(
+    "loginForm"
+  )
+  .addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+
+      const username =
+        document
+          .getElementById(
+            "username"
+          )
+          .value;
+
+
+      const password =
+        document
+          .getElementById(
+            "password"
+          )
+          .value;
+
+
+      const message =
+        document
+          .getElementById(
+            "loginMessage"
+          );
+
+
+      message.textContent =
+        "Logging in...";
+
+
+      try {
+
+        await api(
+          "/api/login",
+          {
+
+            method:
+              "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify({
+
+                username,
+
+                password
+
+              })
+
+          }
+        );
+
+
+        showDashboard();
+
+
+      } catch (error) {
+
+        message.textContent =
+          error.message;
+
+      }
+
+    }
+  );
+
+
+
+// =====================================================
+// LOGOUT
+// =====================================================
+
+document
+  .getElementById(
+    "logoutButton"
+  )
+  .addEventListener(
+    "click",
+    async function () {
+
+      await api(
+        "/api/logout",
+        {
+          method: "POST"
+        }
+      );
+
+
+      location.reload();
+
+    }
+  );
+
+
+
+// =====================================================
+// ADD PROJECT
+// =====================================================
+
+document
+  .getElementById(
+    "projectForm"
+  )
+  .addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+
+      const form =
+        event.target;
+
+
+      const message =
+        document
+          .getElementById(
+            "formMessage"
+          );
+
+
+      message.textContent =
+        "Saving project...";
+
+
+      try {
+
+        const formData =
+          new FormData(form);
+
+
+        await api(
+          "/api/admin/projects",
+          {
+
+            method:
+              "POST",
+
+            body:
+              formData
+
+          }
+        );
+
+
+        form.reset();
+
+
+        message.textContent =
+          "Project added successfully.";
+
+
+        loadProjects();
+
+
+      } catch (error) {
+
+        message.textContent =
+          error.message;
+
+      }
+
+    }
+  );
+
+
+
+// =====================================================
+// LOAD PROJECTS
+// =====================================================
+
+async function loadProjects() {
+
+  const table =
+    document
+      .getElementById(
+        "projectsTable"
+      );
+
+
+  try {
+
+    const projects =
+      await api(
+        "/api/admin/projects"
+      );
+
+
+    if (!projects.length) {
+
+      table.innerHTML = `
+        <tr>
+          <td colspan="5">
+            No projects yet.
+          </td>
+        </tr>
+      `;
+
+      return;
+
+    }
+
+
+    table.innerHTML =
+      projects
+        .map(
+          project => `
+
+          <tr>
+
+            <td>
+
+              ${
+                project.image
+
+                ?
+
+                `
+                <img
+                  src="${escapeHTML(
+                    project.image
+                  )}"
+                  class="project-thumb"
+                >
+                `
+
+                :
+
+                "-"
+              }
+
+            </td>
+
+
+            <td>
+              ${escapeHTML(
+                project.name
+              )}
+            </td>
+
+
+            <td>
+
+              <a
+                href="${escapeHTML(
+                  project.path
+                )}"
+                target="_blank"
+              >
+
+                ${escapeHTML(
+                  project.path
+                )}
+
+              </a>
+
+            </td>
+
+
+            <td
+              style="
+                max-width:300px;
+                word-break:break-all;
+              "
+            >
+
+              ${escapeHTML(
+                project.target
+              )}
+
+            </td>
+
+
+            <td>
+
+              <button
+                class="delete-btn"
+                onclick="
+                  deleteProject(
+                    '${project._id}'
+                  )
+                "
+              >
+
+                Delete
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        `
+        )
+        .join("");
+
+
+  } catch (error) {
+
+    table.innerHTML = `
+      <tr>
+        <td colspan="5">
+          ${escapeHTML(
+            error.message
+          )}
+        </td>
+      </tr>
+    `;
+
+  }
+
+}
+
+
+
+// =====================================================
+// DELETE
+// =====================================================
+
+async function deleteProject(
+  id
+) {
+
+  const confirmDelete =
+    confirm(
+      "Unataka kufuta project hii?"
+    );
+
+
+  if (!confirmDelete) {
+
+    return;
+
+  }
+
+
+  try {
+
+    await api(
+      "/api/admin/projects/" +
+      id,
+      {
+        method:
+          "DELETE"
+      }
+    );
+
+
+    loadProjects();
+
+
+  } catch (error) {
+
+    alert(
+      error.message
+    );
+
+  }
+
+}
+
+
+
+// =====================================================
+// ESCAPE
+// =====================================================
+
+function escapeHTML(
+  value
+) {
+
+  return String(
+    value ?? ""
+  ).replace(
+    /[&<>"']/g,
+    function (char) {
+
+      return {
+
+        "&": "&amp;",
+
+        "<": "&lt;",
+
+        ">": "&gt;",
+
+        '"': "&quot;",
+
+        "'": "&#039;"
+
+      }[char];
+
+    }
+  );
+
+}
+
+
+
+// START
+
+checkLogin();
+
+</script>
+
+</body>
+
+</html>
