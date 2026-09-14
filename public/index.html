@@ -1,233 +1,1400 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+  <title>SILA TECH • Digital World</title>
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+  <meta
+    name="description"
+    content="SILA TECH — Bots, Hosting, Websites, Tools and Digital Projects."
+  >
 
-<title>SILA TECH</title>
+  <meta name="theme-color" content="#050816">
 
-<meta
-  name="description"
-  content="SILA TECH - Digital Projects, Bots, Hosting and Technology."
->
+  <style>
+    /* =====================================================
+       RESET
+    ===================================================== */
 
-<link
-  rel="stylesheet"
-  href="/style.css"
->
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(0, 119, 255, 0.18),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(0, 229, 255, 0.12),
+          transparent 30%
+        ),
+        #03050b;
+
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* =====================================================
+       BACKGROUND EFFECT
+    ===================================================== */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 45px 45px;
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glow {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+
+      background: #0066ff;
+      filter: blur(180px);
+
+      opacity: 0.12;
+
+      border-radius: 50%;
+
+      top: 30%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      z-index: 1000;
+
+      background: rgba(3, 5, 11, 0.75);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-container {
+      width: min(1150px, 92%);
+      margin: auto;
+
+      height: 75px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff,
+          #00aaff,
+          #5b7cff
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .logo span {
+      color: #00aaff;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #aeb9cc;
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .admin-link {
+      padding: 10px 18px;
+
+      border: 1px solid rgba(0, 174, 255, 0.35);
+
+      border-radius: 10px;
+
+      background: rgba(0, 136, 255, 0.08);
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        120px 20px
+        80px;
+
+      text-align: center;
+    }
+
+    .hero-content {
+      width: min(900px, 100%);
+    }
+
+    .badge {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 8px;
+
+      padding: 9px 16px;
+
+      border-radius: 999px;
+
+      border: 1px solid rgba(0, 174, 255, 0.3);
+
+      background:
+        rgba(0, 140, 255, 0.08);
+
+      color: #63c7ff;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+      margin-bottom: 25px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+
+      background: #00c8ff;
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 12px #00c8ff;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 9vw, 105px);
+
+      line-height: 0.95;
+
+      font-weight: 950;
+
+      letter-spacing: -5px;
+
+      margin-bottom: 28px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff 20%,
+          #7bdcff 55%,
+          #3575ff 100%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+
+      text-shadow:
+        0 0 50px rgba(0,150,255,0.12);
+    }
+
+    .hero p {
+      width: min(680px, 100%);
+      margin: auto;
+
+      color: #9ca9bd;
+
+      font-size: 17px;
+
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+
+      display: flex;
+      justify-content: center;
+
+      gap: 14px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-width: 160px;
+
+      padding: 14px 22px;
+
+      border-radius: 12px;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        background 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background:
+        linear-gradient(
+          135deg,
+          #006eff,
+          #00b7ff
+        );
+
+      color: #ffffff;
+
+      box-shadow:
+        0 12px 35px
+        rgba(0, 119, 255, 0.25);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.12);
+
+      background:
+        rgba(255,255,255,0.045);
+
+      color: #ffffff;
+    }
+
+    .scroll {
+      margin-top: 70px;
+
+      color: #65738a;
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+    }
+
+    /* =====================================================
+       GENERAL SECTION
+    ===================================================== */
+
+    .section {
+      width: min(1150px, 92%);
+
+      margin: auto;
+
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: #149dff;
+
+      font-size: 12px;
+
+      font-weight: 900;
+
+      letter-spacing: 3px;
+    }
+
+    .section-title h2 {
+      margin-top: 12px;
+
+      font-size: clamp(32px, 5vw, 52px);
+
+      font-weight: 900;
+
+      letter-spacing: -2px;
+    }
+
+    .section-title p {
+      margin: 15px auto 0;
+
+      max-width: 620px;
+
+      color: #7f8ba0;
+
+      line-height: 1.7;
+    }
+
+    /* =====================================================
+       PROJECTS
+    ===================================================== */
+
+    .projects-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(260px, 1fr)
+        );
+
+      gap: 22px;
+    }
+
+    .project-card {
+      position: relative;
+
+      min-height: 330px;
+
+      padding: 25px;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(16, 26, 48, 0.9),
+          rgba(5, 9, 18, 0.9)
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.35s,
+        border 0.35s,
+        box-shadow 0.35s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+
+      border-color:
+        rgba(0, 153, 255, 0.4);
+
+      box-shadow:
+        0 25px 70px
+        rgba(0, 110, 255, 0.12);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 160px;
+
+      border-radius: 15px;
+
+      object-fit: cover;
+
+      display: block;
+
+      margin-bottom: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #08101f,
+          #0b1d38
+        );
+
+      border:
+        1px solid rgba(255,255,255,0.06);
+    }
+
+    .project-icon {
+      width: 55px;
+      height: 55px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 15px;
+
+      margin-bottom: 20px;
+
+      font-size: 23px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,125,255,0.18),
+          rgba(0,210,255,0.08)
+        );
+
+      border:
+        1px solid
+        rgba(0,160,255,0.25);
+
+      color: #5dc8ff;
+    }
+
+    .project-card h3 {
+      font-size: 21px;
+
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: #7f8ca2;
+
+      line-height: 1.6;
+
+      font-size: 14px;
+
+      min-height: 50px;
+    }
+
+    .project-actions {
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 20px;
+
+      flex-wrap: wrap;
+    }
+
+    .project-btn {
+      display: inline-flex;
+
+      padding: 10px 15px;
+
+      border-radius: 9px;
+
+      background:
+        rgba(0,125,255,0.1);
+
+      border:
+        1px solid
+        rgba(0,150,255,0.2);
+
+      color: #62c7ff;
+
+      font-size: 12px;
+
+      font-weight: 800;
+    }
+
+    .post-btn {
+      background:
+        rgba(255,255,255,0.05);
+
+      border-color:
+        rgba(255,255,255,0.1);
+
+      color: #c4cfdf;
+    }
+
+    /* =====================================================
+       LOADING
+    ===================================================== */
+
+    .loading {
+      grid-column: 1 / -1;
+
+      text-align: center;
+
+      padding: 60px 20px;
+
+      color: #7c899e;
+    }
+
+    .loader {
+      width: 38px;
+      height: 38px;
+
+      border:
+        3px solid
+        rgba(255,255,255,0.08);
+
+      border-top-color:
+        #00aaff;
+
+      border-radius: 50%;
+
+      animation:
+        spin 0.8s linear infinite;
+
+      margin: 0 auto 15px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* =====================================================
+       ERROR
+    ===================================================== */
+
+    .error-box {
+      grid-column: 1 / -1;
+
+      padding: 35px;
+
+      text-align: center;
+
+      border-radius: 18px;
+
+      border:
+        1px solid
+        rgba(255,70,70,0.15);
+
+      background:
+        rgba(255,50,50,0.04);
+
+      color: #aeb8c8;
+    }
+
+    .error-box strong {
+      display: block;
+
+      color: #ff7373;
+
+      margin-bottom: 8px;
+    }
+
+    /* =====================================================
+       ABOUT
+    ===================================================== */
+
+    .about-box {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 30px;
+
+      padding: 45px;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(11,22,42,0.85),
+          rgba(5,9,18,0.85)
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,0.07);
+    }
+
+    .about-text h3 {
+      font-size: 30px;
+
+      margin-bottom: 18px;
+    }
+
+    .about-text p {
+      color: #8491a5;
+
+      line-height: 1.9;
+
+      font-size: 15px;
+    }
+
+    .features {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 14px;
+    }
+
+    .feature {
+      padding: 20px;
+
+      border-radius: 15px;
+
+      background:
+        rgba(255,255,255,0.035);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.06);
+    }
+
+    .feature-icon {
+      font-size: 22px;
+
+      margin-bottom: 10px;
+    }
+
+    .feature h4 {
+      font-size: 14px;
+
+      margin-bottom: 7px;
+    }
+
+    .feature p {
+      color: #6f7d92;
+
+      font-size: 12px;
+
+      line-height: 1.5;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      border-top:
+        1px solid
+        rgba(255,255,255,0.07);
+
+      margin-top: 50px;
+
+      padding: 35px 20px;
+
+      text-align: center;
+
+      color: #5e6b7e;
+
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: #ffffff;
+    }
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 700px) {
+
+      .nav-container {
+        height: 65px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .nav-links a:nth-child(2) {
+        display: none;
+      }
+
+      .admin-link {
+        padding: 8px 11px;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .about-box {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        min-height: auto;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <div class="glow"></div>
 
-<header class="navbar">
+  <!-- ===================================================
+       NAVBAR
+  ==================================================== -->
 
-  <a
-    href="/"
-    class="logo"
-  >
+  <header class="navbar">
 
-    <span class="logo-icon">
-      S
-    </span>
+    <div class="nav-container">
 
-    <span>
-      SILA TECH
-    </span>
-
-  </a>
-
-
-  <nav>
-
-    <a href="#home">
-      Home
-    </a>
-
-    <a href="#projects">
-      Projects
-    </a>
-
-    <a href="#about">
-      About
-    </a>
-
-    <a href="/admin.html">
-      Admin
-    </a>
-
-  </nav>
-
-</header>
-
-
-
-<main>
-
-
-<section
-  id="home"
-  class="hero"
->
-
-  <div class="hero-content">
-
-    <div class="badge">
-      SILA TECH • DIGITAL WORLD
-    </div>
-
-
-    <h1>
-
-      Build.
-
-      <span>
-        Create.
-      </span>
-
-      Deploy.
-
-    </h1>
-
-
-    <p>
-
-      Welcome to SILA TECH — a technology
-      platform for bots, hosting, websites,
-      tools and digital projects.
-
-    </p>
-
-
-    <div class="hero-buttons">
-
-      <a
-        href="#projects"
-        class="btn primary"
-      >
-        Explore Projects
+      <a href="#home" class="logo">
+        SILA<span>TECH</span>
       </a>
 
+      <nav class="nav-links">
 
-      <a
-        href="#about"
-        class="btn secondary"
-      >
-        About SILA TECH
-      </a>
+        <a href="#home">
+          Home
+        </a>
+
+        <a href="#projects">
+          Projects
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="/admin.html" class="admin-link">
+          Admin
+        </a>
+
+      </nav>
 
     </div>
 
-  </div>
+  </header>
 
 
-  <div class="hero-glow"></div>
+  <!-- ===================================================
+       HERO
+  ==================================================== -->
 
-</section>
+  <main>
 
+    <section class="hero" id="home">
 
+      <div class="hero-content">
 
-<section
-  id="projects"
-  class="projects-section"
->
+        <div class="badge">
+          <span class="badge-dot"></span>
+          SILA TECH • DIGITAL WORLD
+        </div>
 
-  <div class="section-title">
+        <h1>
+          Build.<br>
+          Create.<br>
+          Deploy.
+        </h1>
 
-    <div>
+        <p>
+          Welcome to SILA TECH — a technology platform
+          for bots, hosting, websites, tools and modern
+          digital projects.
+        </p>
 
-      <div class="small-title">
-        SILA TECH
+        <div class="hero-buttons">
+
+          <a
+            href="#projects"
+            class="btn btn-primary"
+          >
+            Explore Projects
+          </a>
+
+          <a
+            href="#about"
+            class="btn btn-secondary"
+          >
+            About SILA TECH
+          </a>
+
+        </div>
+
+        <div class="scroll">
+          SCROLL TO EXPLORE
+        </div>
+
       </div>
 
-      <h2>
-        Projects
-      </h2>
-
-    </div>
+    </section>
 
 
-    <span
-      id="projectCount"
-      class="project-count"
+    <!-- =================================================
+         PROJECTS
+    ================================================== -->
+
+    <section
+      class="section"
+      id="projects"
     >
-    </span>
 
-  </div>
+      <div class="section-title">
+
+        <small>OUR WORK</small>
+
+        <h2>
+          Projects
+        </h2>
+
+        <p>
+          Explore projects and digital services
+          powered by SILA TECH.
+        </p>
+
+      </div>
 
 
-  <div
-    id="projectsGrid"
-    class="projects-grid"
-  >
+      <div
+        id="projectsGrid"
+        class="projects-grid"
+      >
 
-    <div class="loading">
-      Loading projects...
+        <div class="loading">
+
+          <div class="loader"></div>
+
+          Loading projects...
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         ABOUT
+    ================================================== -->
+
+    <section
+      class="section"
+      id="about"
+    >
+
+      <div class="section-title">
+
+        <small>WHO WE ARE</small>
+
+        <h2>
+          SILA TECH
+        </h2>
+
+      </div>
+
+
+      <div class="about-box">
+
+        <div class="about-text">
+
+          <h3>
+            Digital Technology.
+            <br>
+            Built Different.
+          </h3>
+
+          <p>
+            SILA TECH is a technology platform where
+            digital projects, WhatsApp bots, hosting
+            services, websites, tools and useful
+            digital solutions are brought together
+            in one place.
+          </p>
+
+          <br>
+
+          <p>
+            Our goal is to make technology easier,
+            faster and more accessible while building
+            modern digital solutions for creators,
+            developers and businesses.
+          </p>
+
+        </div>
+
+
+        <div class="features">
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              🤖
+            </div>
+
+            <h4>
+              WhatsApp Bots
+            </h4>
+
+            <p>
+              Powerful automation and bot projects.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              ☁️
+            </div>
+
+            <h4>
+              Hosting
+            </h4>
+
+            <p>
+              Modern hosting and deployment solutions.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              🌐
+            </div>
+
+            <h4>
+              Websites
+            </h4>
+
+            <p>
+              Modern websites and digital platforms.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              ⚡
+            </div>
+
+            <h4>
+              Digital Tools
+            </h4>
+
+            <p>
+              Useful tools built for the digital world.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ===================================================
+       FOOTER
+  ==================================================== -->
+
+  <footer>
+
+    <div>
+      © 2026
+      <strong>SILA TECH</strong>
+      • All Rights Reserved
     </div>
 
-  </div>
+    <div style="margin-top:8px;">
+      Powered by
+      <strong>SILA TECH</strong>
+    </div>
 
-</section>
-
-
-
-<section
-  id="about"
-  class="about-section"
->
-
-  <div class="small-title">
-    ABOUT
-  </div>
+  </footer>
 
 
-  <h2>
-    SILA TECH
-  </h2>
+  <!-- ===================================================
+       JAVASCRIPT
+  ==================================================== -->
+
+  <script>
+
+    /*
+      Load projects from MongoDB API.
+    */
+
+    async function loadProjects() {
+
+      const grid =
+        document.getElementById(
+          "projectsGrid"
+        );
+
+      try {
+
+        const response =
+          await fetch(
+            "/api/projects",
+            {
+              method: "GET",
+
+              headers: {
+                "Accept":
+                  "application/json"
+              },
+
+              cache: "no-store"
+            }
+          );
 
 
-  <p>
-
-    SILA TECH is a technology platform
-    where digital projects, bots,
-    hosting services and useful tools
-    are brought together in one place.
-
-  </p>
-
-</section>
+        if (!response.ok) {
+          throw new Error(
+            "Server returned " +
+            response.status
+          );
+        }
 
 
-</main>
+        const data =
+          await response.json();
 
 
+        if (
+          !data.success ||
+          !Array.isArray(
+            data.projects
+          )
+        ) {
 
-<footer>
+          throw new Error(
+            "Invalid project response."
+          );
 
-  <div>
-    © <span id="year"></span>
-    SILA TECH
-  </div>
-
-  <div>
-    Powered by SILA TECH
-  </div>
-
-</footer>
-
+        }
 
 
-<script src="/app.js"></script>
+        if (
+          data.projects.length === 0
+        ) {
+
+          grid.innerHTML = `
+
+            <div class="error-box">
+
+              <strong>
+                No Projects Yet
+              </strong>
+
+              Projects added from the
+              admin panel will appear here.
+
+            </div>
+
+          `;
+
+          return;
+        }
+
+
+        grid.innerHTML = "";
+
+
+        data.projects.forEach(
+          project => {
+
+            const card =
+              document.createElement(
+                "article"
+              );
+
+            card.className =
+              "project-card";
+
+
+            /*
+              Project image
+            */
+
+            let imageHTML = "";
+
+
+            if (project.image) {
+
+              imageHTML = `
+
+                <img
+                  class="project-image"
+                  src="${escapeHTML(
+                    project.image
+                  )}"
+                  alt="${escapeHTML(
+                    project.name
+                  )}"
+                  loading="lazy"
+                >
+
+              `;
+
+            } else {
+
+              imageHTML = `
+
+                <div class="project-icon">
+                  ⚡
+                </div>
+
+              `;
+
+            }
+
+
+            /*
+              Project buttons
+            */
+
+            let actions = `
+
+              <a
+                href="${escapeHTML(
+                  project.path
+                )}"
+                class="project-btn"
+              >
+                Open Project →
+              </a>
+
+            `;
+
+
+            if (
+              project.postUrl
+            ) {
+
+              actions += `
+
+                <a
+                  href="${escapeHTML(
+                    project.postUrl
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-btn post-btn"
+                >
+                  Post ↗
+                </a>
+
+              `;
+
+            }
+
+
+            card.innerHTML = `
+
+              ${imageHTML}
+
+              <h3>
+                ${escapeHTML(
+                  project.name
+                )}
+              </h3>
+
+              <p>
+                ${escapeHTML(
+                  project.description ||
+                  "SILA TECH digital project."
+                )}
+              </p>
+
+              <div class="project-actions">
+                ${actions}
+              </div>
+
+            `;
+
+
+            grid.appendChild(
+              card
+            );
+
+          }
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "Project loading error:",
+          error
+        );
+
+
+        grid.innerHTML = `
+
+          <div class="error-box">
+
+            <strong>
+              Failed to load projects
+            </strong>
+
+            The projects service is
+            temporarily unavailable.
+
+            <br><br>
+
+            <small>
+              You can still use the rest
+              of the SILA TECH website.
+            </small>
+
+          </div>
+
+        `;
+
+      }
+
+    }
+
+
+    /*
+      Security helper.
+    */
+
+    function escapeHTML(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+        return "";
+      }
+
+      return String(value)
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /*
+      Start loading projects.
+    */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        loadProjects();
+
+      }
+    );
+
+  </script>
 
 </body>
-
 </html>
