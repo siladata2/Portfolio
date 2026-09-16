@@ -7,13 +7,13 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --void:#05070d; --panel:#0b0f1a; --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
   --ink:#eef2fb; --ink-dim:#8994ac; --ink-faint:#5b6478;
   --signal:#2fe3ff; --pulse:#8b7bff; --live:#ff3f9e; --ok:#3ee08a; --warn:#ffb84d;
-  --disp:'Space Grotesk',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --disp:'Sora',system-ui,sans-serif; --body:'Manrope',system-ui,sans-serif; --mono:'Manrope',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
@@ -43,7 +43,7 @@ button{font-family:inherit;cursor:pointer;}
   background:linear-gradient(160deg,rgba(16,24,42,.7),rgba(6,9,17,.85));
   border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px;
 }
-.route-tag{font-family:var(--mono);font-size:11px;color:var(--signal);letter-spacing:.3px;}
+.route-tag{font-family:var(--body);font-size:11.5px;font-weight:700;color:var(--signal);letter-spacing:.06em;text-transform:uppercase;}
 .panel h1{font-family:var(--disp);font-size:24px;font-weight:700;margin-top:6px;}
 .panel h2{font-family:var(--disp);font-size:18px;font-weight:600;margin-top:4px;}
 
@@ -144,7 +144,7 @@ tr:hover td{background:rgba(255,255,255,.015);}
   <!-- LOGIN -->
   <section id="loginPanel" class="login-wrap">
     <div class="panel">
-      <span class="route-tag">/api/login</span>
+      <span class="route-tag">Secure access</span>
       <h1>Sign in</h1>
       <form id="loginForm" style="margin-top:22px;">
         <div class="field">
@@ -166,7 +166,7 @@ tr:hover td{background:rgba(255,255,255,.015);}
 
     <div class="panel dash-head">
       <div>
-        <span class="route-tag">/api/admin/projects</span>
+        <span class="route-tag">Overview</span>
         <h1>Control room</h1>
       </div>
       <button id="logoutButton" class="logout-btn">Sign out</button>
@@ -179,7 +179,7 @@ tr:hover td{background:rgba(255,255,255,.015);}
     </div>
 
     <div class="panel">
-      <span class="route-tag">/api/admin/projects · POST</span>
+      <span class="route-tag">New entry</span>
       <h2>Add a project</h2>
 
       <form id="projectForm" enctype="multipart/form-data" style="margin-top:20px;">
@@ -202,7 +202,7 @@ tr:hover td{background:rgba(255,255,255,.015);}
     </div>
 
     <div class="panel">
-      <span class="route-tag">projects</span>
+      <span class="route-tag">Library</span>
       <h2>Published projects</h2>
       <div class="table-wrap" style="margin-top:18px;">
         <table>
@@ -221,7 +221,7 @@ tr:hover td{background:rgba(255,255,255,.015);}
 <div class="modal-overlay" id="editOverlay">
   <div class="modal">
     <div class="modal-head">
-      <div><span class="route-tag">/api/admin/projects/:id · PUT</span><h2>Edit project</h2></div>
+      <div><span class="route-tag">Update</span><h2>Edit project</h2></div>
       <button class="modal-close" id="editClose">✕</button>
     </div>
     <form id="editForm" enctype="multipart/form-data">
