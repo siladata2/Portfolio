@@ -1,1188 +1,445 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>SILA TECH Admin</title>
-
-<link
-  rel="stylesheet"
-  href="/style.css"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Room — SILA TECH</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-
-.admin-page {
-
-  max-width: 1100px;
-
-  margin: auto;
-
-  padding:
-    50px 20px
-    100px;
-
+:root{
+  --void:#05070d; --panel:#0b0f1a; --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+  --ink:#eef2fb; --ink-dim:#8994ac; --ink-faint:#5b6478;
+  --signal:#2fe3ff; --pulse:#8b7bff; --live:#ff3f9e; --ok:#3ee08a; --warn:#ffb84d;
+  --disp:'Space Grotesk',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
 }
-
-
-.admin-panel {
-
-  background:
-    #0b111a;
-
-  border:
-    1px solid
-    #182536;
-
-  border-radius:
-    18px;
-
-  padding:
-    25px;
-
-  margin-bottom:
-    25px;
-
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--void); color:var(--ink); font-family:var(--body); min-height:100vh;
+  background-image:radial-gradient(circle at 15% -10%, rgba(47,227,255,.08), transparent 40%),
+                    radial-gradient(circle at 90% 10%, rgba(139,123,255,.08), transparent 40%);
 }
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+::-webkit-scrollbar{width:9px;} ::-webkit-scrollbar-thumb{background:#1a2133;border-radius:99px;}
 
-
-.admin-panel h1,
-.admin-panel h2 {
-
-  margin-top: 0;
-
+.topbar{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;height:66px;border-bottom:1px solid var(--line);
+  background:rgba(5,7,13,.75);backdrop-filter:blur(16px);
 }
+.topbar .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:15px;}
+.brand-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(150deg,#0a63ff,#2fe3ff);display:flex;align-items:center;justify-content:center;color:#031018;font-weight:700;font-size:13px;}
+.topbar .brand small{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);font-weight:400;}
+.topbar-right{display:flex;align-items:center;gap:14px;}
+.link-out{font-size:12.5px;color:var(--ink-dim);border:1px solid var(--line);padding:8px 13px;border-radius:9px;}
+.link-out:hover{color:var(--ink);border-color:var(--line-strong);}
 
+.shell{width:min(1080px,92%);margin:0 auto;padding:46px 0 120px;}
 
-.form-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 15px;
-
+.panel{
+  background:linear-gradient(160deg,rgba(16,24,42,.7),rgba(6,9,17,.85));
+  border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:22px;
 }
+.route-tag{font-family:var(--mono);font-size:11px;color:var(--signal);letter-spacing:.3px;}
+.panel h1{font-family:var(--disp);font-size:24px;font-weight:700;margin-top:6px;}
+.panel h2{font-family:var(--disp);font-size:18px;font-weight:600;margin-top:4px;}
 
-
-.form-group {
-
-  margin-bottom:
-    15px;
-
+/* ---------- login ---------- */
+.login-wrap{max-width:400px;margin:90px auto 0;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:12px;color:var(--ink-dim);margin-bottom:7px;font-weight:500;}
+input,textarea{
+  width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line-strong);
+  background:rgba(255,255,255,.03);color:var(--ink);font-family:var(--body);font-size:14px;
+  transition:border-color .25s,background .25s;
 }
+input:focus,textarea:focus{outline:none;border-color:var(--signal);background:rgba(47,227,255,.04);}
+textarea{resize:vertical;min-height:80px;}
+input[type="file"]{padding:9px 12px;font-size:12.5px;color:var(--ink-dim);}
 
-
-.form-group.full {
-
-  grid-column:
-    1 / -1;
-
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 22px;border-radius:10px;font-weight:600;font-size:13.5px;border:none;
+  transition:transform .2s,box-shadow .2s,filter .2s;
 }
+.btn-solid{background:linear-gradient(120deg,#0a63ff,#2fe3ff);color:#031018;box-shadow:0 12px 28px rgba(10,99,255,.25);}
+.btn-solid:hover{filter:brightness(1.06);transform:translateY(-1px);}
+.btn-ghost{background:rgba(255,255,255,.03);color:var(--ink);border:1px solid var(--line-strong);}
+.btn-ghost:hover{border-color:var(--signal);color:var(--signal);}
+.btn-danger{background:rgba(255,63,110,.09);color:#ff6b8a;border:1px solid rgba(255,63,110,.3);padding:8px 13px;font-size:12px;}
+.btn-danger:hover{background:rgba(255,63,110,.16);}
+.btn-warn{background:rgba(255,184,77,.09);color:var(--warn);border:1px solid rgba(255,184,77,.3);padding:8px 13px;font-size:12px;}
+.btn-warn:hover{background:rgba(255,184,77,.16);}
+.btn-block{width:100%;}
 
+.message{margin-top:14px;font-size:12.5px;font-family:var(--mono);min-height:16px;}
+.message.err{color:#ff6b8a;} .message.ok{color:var(--ok);}
 
-label {
+/* ---------- dashboard header ---------- */
+.dash-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
+.logout-btn{background:rgba(255,255,255,.03);border:1px solid var(--line-strong);color:var(--ink-dim);padding:9px 15px;border-radius:9px;font-size:12.5px;}
+.logout-btn:hover{color:var(--ink);border-color:var(--live);}
 
-  display: block;
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;}
+@media (max-width:640px){.stat-row{grid-template-columns:1fr;}}
+.stat{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:rgba(255,255,255,.02);}
+.stat .n{font-family:var(--disp);font-size:26px;font-weight:700;}
+.stat .l{font-size:11.5px;color:var(--ink-faint);font-family:var(--mono);margin-top:4px;}
 
-  margin-bottom:
-    7px;
+/* ---------- form ---------- */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-grid .full{grid-column:1/-1;}
+@media (max-width:640px){.form-grid{grid-template-columns:1fr;}}
+.check-row{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-dim);margin:2px 0 18px;}
+.check-row input{width:auto;}
+.form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
 
-  color:
-    #aeb9c8;
-
-  font-size:
-    13px;
-
+/* ---------- table ---------- */
+.table-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);}
+table{width:100%;border-collapse:collapse;min-width:680px;}
+th{
+  text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.4px;color:var(--ink-faint);
+  padding:13px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);
 }
-
-
-input,
-textarea {
-
-  width: 100%;
-
-  padding:
-    13px;
-
-  border:
-    1px solid
-    #1b2b3e;
-
-  border-radius:
-    10px;
-
-  background:
-    #060a10;
-
-  color:
-    white;
-
-  outline:
-    none;
-
-}
-
-
-textarea {
-
-  min-height:
-    100px;
-
-  resize:
-    vertical;
-
-}
-
-
-input:focus,
-textarea:focus {
-
-  border-color:
-    #3477c4;
-
-}
-
-
-.admin-button {
-
-  padding:
-    12px 18px;
-
-  border: 0;
-
-  border-radius:
-    10px;
-
-  color:
-    white;
-
-  background:
-    #174b8c;
-
-  cursor:
-    pointer;
-
-  font-weight:
-    700;
-
-}
-
-
-.logout-button {
-
-  background:
-    #7f1d1d;
-
-}
-
-
-.message {
-
-  color:
-    #8fa2ba;
-
-  font-size:
-    13px;
-
-}
-
-
-.projects-table {
-
-  width: 100%;
-
-  border-collapse:
-    collapse;
-
-}
-
-
-.projects-table th,
-.projects-table td {
-
-  padding:
-    13px 8px;
-
-  text-align:
-    left;
-
-  border-bottom:
-    1px solid
-    #182536;
-
-  font-size:
-    13px;
-
-}
-
-
-.projects-table td {
-
-  color:
-    #aeb9c8;
-
-}
-
-
-.project-thumb {
-
-  width:
-    55px;
-
-  height:
-    40px;
-
-  object-fit:
-    cover;
-
-  border-radius:
-    7px;
-
-}
-
-
-.delete-btn {
-
-  padding:
-    8px 10px;
-
-  border:
-    0;
-
-  border-radius:
-    8px;
-
-  color:
-    white;
-
-  background:
-    #7f1d1d;
-
-  cursor:
-    pointer;
-
-}
-
-
-@media (
-  max-width: 700px
-) {
-
-  .form-grid {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .form-group.full {
-
-    grid-column:
-      auto;
-
-  }
-
-}
-
+td{padding:13px 16px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,.015);}
+.thumb{width:40px;height:40px;border-radius:9px;object-fit:cover;border:1px solid var(--line);}
+.thumb-ph{width:40px;height:40px;border-radius:9px;background:rgba(47,227,255,.08);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;color:var(--signal);font-size:13px;}
+.path-cell{font-family:var(--mono);font-size:12px;color:var(--signal);}
+.target-cell{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-dim);font-family:var(--mono);font-size:11.5px;}
+.badge{font-family:var(--mono);font-size:10.5px;padding:3px 9px;border-radius:99px;display:inline-block;}
+.badge.on{color:var(--ok);background:rgba(62,224,138,.1);border:1px solid rgba(62,224,138,.3);}
+.badge.off{color:var(--ink-faint);background:rgba(255,255,255,.03);border:1px solid var(--line-strong);}
+.row-actions{display:flex;gap:7px;flex-wrap:wrap;}
+
+.empty-row td{text-align:center;color:var(--ink-faint);padding:40px 16px;}
+
+/* ---------- edit modal ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(3,5,10,.65);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{width:min(560px,100%);max-height:88vh;overflow-y:auto;background:linear-gradient(160deg,#101828,#080b14);border:1px solid var(--line-strong);border-radius:18px;padding:26px;}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.modal-close{width:32px;height:32px;border-radius:9px;border:1px solid var(--line);color:var(--ink-dim);display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{color:var(--ink);}
 </style>
-
 </head>
-
-
-
 <body>
 
-
-<header class="navbar">
-
-  <a
-    href="/"
-    class="logo"
-  >
-
-    <span class="logo-icon">
-      S
-    </span>
-
-    SILA TECH ADMIN
-
-  </a>
-
-
-  <a href="/">
-    View Website
-  </a>
-
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">S</span>
+    SILA TECH <small>&nbsp;/ control room</small>
+  </div>
+  <div class="topbar-right">
+    <a href="/" class="link-out">← Back to site</a>
+  </div>
 </header>
 
+<div class="shell">
 
+  <!-- LOGIN -->
+  <section id="loginPanel" class="login-wrap">
+    <div class="panel">
+      <span class="route-tag">/api/login</span>
+      <h1>Sign in</h1>
+      <form id="loginForm" style="margin-top:22px;">
+        <div class="field">
+          <label>Username</label>
+          <input id="username" type="text" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input id="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="btn btn-solid btn-block" type="submit">Unlock control room</button>
+        <p id="loginMessage" class="message"></p>
+      </form>
+    </div>
+  </section>
 
-<main class="admin-page">
+  <!-- DASHBOARD -->
+  <section id="dashboard" style="display:none;">
 
-
-<!-- LOGIN -->
-
-<section
-  id="loginPanel"
-  class="admin-panel"
->
-
-  <div class="small-title">
-    CONTROL PANEL
-  </div>
-
-
-  <h1>
-    Admin Login
-  </h1>
-
-
-  <form id="loginForm">
-
-
-    <div class="form-group">
-
-      <label>
-        Username
-      </label>
-
-      <input
-        id="username"
-        type="text"
-        required
-      >
-
+    <div class="panel dash-head">
+      <div>
+        <span class="route-tag">/api/admin/projects</span>
+        <h1>Control room</h1>
+      </div>
+      <button id="logoutButton" class="logout-btn">Sign out</button>
     </div>
 
-
-
-    <div class="form-group">
-
-      <label>
-        Password
-      </label>
-
-      <input
-        id="password"
-        type="password"
-        required
-      >
-
+    <div class="stat-row">
+      <div class="stat"><div class="n" id="statTotal">–</div><div class="l">total projects</div></div>
+      <div class="stat"><div class="n" id="statActive">–</div><div class="l">active on gateway</div></div>
+      <div class="stat"><div class="n" id="statHidden">–</div><div class="l">hidden</div></div>
     </div>
 
+    <div class="panel">
+      <span class="route-tag">/api/admin/projects · POST</span>
+      <h2>Add a project</h2>
 
-    <button
-      class="admin-button"
-      type="submit"
-    >
-      Login
-    </button>
+      <form id="projectForm" enctype="multipart/form-data" style="margin-top:20px;">
+        <div class="form-grid">
+          <div class="field"><label>Name</label><input name="name" placeholder="SILA MD" required></div>
+          <div class="field"><label>Path</label><input name="path" placeholder="/bot" required></div>
+          <div class="field full"><label>Target URL</label><input name="target" placeholder="https://your-app.example.com" required></div>
+          <div class="field full"><label>Description</label><textarea name="description" placeholder="What this project does…"></textarea></div>
+          <div class="field"><label>Post link (optional)</label><input name="postUrl" placeholder="https://example.com/post"></div>
+          <div class="field"><label>Image</label><input name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></div>
+        </div>
 
+        <div class="check-row"><input type="checkbox" name="active" id="activeCheck" checked><label for="activeCheck">Visible on the live site</label></div>
 
-    <p
-      id="loginMessage"
-      class="message"
-    ></p>
-
-
-  </form>
-
-</section>
-
-
-
-<!-- DASHBOARD -->
-
-<section
-  id="dashboard"
-  style="display:none"
->
-
-
-<div class="admin-panel">
-
-
-  <div
-    style="
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:15px;
-    "
-  >
-
-    <div>
-
-      <div class="small-title">
-        PROJECT MANAGER
-      </div>
-
-      <h1>
-        Add Project
-      </h1>
-
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">+ Add project</button>
+        </div>
+        <p id="formMessage" class="message"></p>
+      </form>
     </div>
 
-
-    <button
-      id="logoutButton"
-      class="admin-button logout-button"
-    >
-      Logout
-    </button>
-
-  </div>
-
-
-
-  <form
-    id="projectForm"
-    enctype="multipart/form-data"
-  >
-
-
-    <div class="form-grid">
-
-
-      <div class="form-group">
-
-        <label>
-          Name
-        </label>
-
-        <input
-          name="name"
-          placeholder="SILA MD"
-          required
-        >
-
+    <div class="panel">
+      <span class="route-tag">projects</span>
+      <h2>Published projects</h2>
+      <div class="table-wrap" style="margin-top:18px;">
+        <table>
+          <thead>
+            <tr><th>Preview</th><th>Name</th><th>Path</th><th>Target</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody id="projectsTable"></tbody>
+        </table>
       </div>
-
-
-
-      <div class="form-group">
-
-        <label>
-          Path
-        </label>
-
-        <input
-          name="path"
-          placeholder="/bot"
-          required
-        >
-
-      </div>
-
-
-
-      <div class="form-group full">
-
-        <label>
-          Target URL
-        </label>
-
-        <input
-          name="target"
-          placeholder="https://aaaasilamin-0ac06c45a8b6.herokuapp.com"
-          required
-        >
-
-      </div>
-
-
-
-      <div class="form-group full">
-
-        <label>
-          Description
-        </label>
-
-        <textarea
-          name="description"
-          placeholder="Elezea project yako hapa..."
-        ></textarea>
-
-      </div>
-
-
-
-      <div class="form-group full">
-
-        <label>
-          Post Link
-        </label>
-
-        <input
-          name="postUrl"
-          placeholder="https://example.com/post"
-        >
-
-      </div>
-
-
-
-      <div class="form-group full">
-
-        <label>
-          Upload Post / Project Image
-        </label>
-
-        <input
-          name="image"
-          type="file"
-          accept="
-            image/jpeg,
-            image/png,
-            image/webp,
-            image/gif
-          "
-        >
-
-      </div>
-
-
     </div>
 
-
-
-    <button
-      type="submit"
-      class="admin-button"
-    >
-      + Add Project
-    </button>
-
-
-    <p
-      id="formMessage"
-      class="message"
-    ></p>
-
-
-  </form>
-
-
+  </section>
 </div>
 
-
-
-<!-- PROJECT LIST -->
-
-<div class="admin-panel">
-
-
-  <div class="small-title">
-    PROJECTS
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="editOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div><span class="route-tag">/api/admin/projects/:id · PUT</span><h2>Edit project</h2></div>
+      <button class="modal-close" id="editClose">✕</button>
+    </div>
+    <form id="editForm" enctype="multipart/form-data">
+      <div class="form-grid">
+        <div class="field"><label>Name</label><input name="name" id="editName" required></div>
+        <div class="field"><label>Path</label><input name="path" id="editPath" required></div>
+        <div class="field full"><label>Target URL</label><input name="target" id="editTarget" required></div>
+        <div class="field full"><label>Description</label><textarea name="description" id="editDescription"></textarea></div>
+        <div class="field"><label>Post link</label><input name="postUrl" id="editPostUrl"></div>
+        <div class="field"><label>Replace image</label><input name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></div>
+      </div>
+      <div class="form-actions" style="margin-top:6px;">
+        <button type="submit" class="btn btn-solid">Save changes</button>
+        <button type="button" class="btn btn-ghost" id="editCancel">Cancel</button>
+      </div>
+      <p id="editMessage" class="message"></p>
+    </form>
   </div>
-
-
-  <h2>
-    Published Projects
-  </h2>
-
-
-  <div
-    style="
-      overflow-x:auto;
-    "
-  >
-
-
-    <table
-      class="projects-table"
-    >
-
-
-      <thead>
-
-        <tr>
-
-          <th>
-            Image
-          </th>
-
-          <th>
-            Name
-          </th>
-
-          <th>
-            Path
-          </th>
-
-          <th>
-            Target
-          </th>
-
-          <th>
-            Action
-          </th>
-
-        </tr>
-
-      </thead>
-
-
-      <tbody
-        id="projectsTable"
-      >
-
-      </tbody>
-
-
-    </table>
-
-
-  </div>
-
-
 </div>
-
-
-</section>
-
-
-</main>
-
-
 
 <script>
-
-
-// =====================================================
-// API HELPER
-// =====================================================
-
-async function api(
-  url,
-  options = {}
-) {
-
-  const response =
-    await fetch(
-      url,
-      options
-    );
-
-
+/* =========================================================
+   API HELPER  (endpoints/contract untouched)
+========================================================= */
+async function api(url, options = {}) {
+  const response = await fetch(url, options);
   let data = {};
-
-  try {
-
-    data =
-      await response.json();
-
-  } catch {
-
-  }
-
-
-  if (!response.ok) {
-
-    throw new Error(
-      data.error ||
-      "Request failed"
-    );
-
-  }
-
-
+  try { data = await response.json(); } catch {}
+  if (!response.ok) throw new Error(data.error || "Request failed");
   return data;
-
+}
+function escapeHTML(value){
+  return String(value ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c]));
 }
 
-
-
-// =====================================================
-// CHECK ADMIN SESSION
-// =====================================================
-
+/* =========================================================
+   AUTH
+========================================================= */
 async function checkLogin() {
-
   try {
-
-    await api(
-      "/api/admin/projects"
-    );
-
-
+    await api("/api/admin/projects");
     showDashboard();
-
-
   } catch {
-
-    document
-      .getElementById(
-        "loginPanel"
-      )
-      .style.display =
-      "block";
-
+    document.getElementById("loginPanel").style.display = "block";
   }
-
 }
-
-
-
-// =====================================================
-// SHOW DASHBOARD
-// =====================================================
 
 function showDashboard() {
-
-  document
-    .getElementById(
-      "loginPanel"
-    )
-    .style.display =
-    "none";
-
-
-  document
-    .getElementById(
-      "dashboard"
-    )
-    .style.display =
-    "block";
-
-
+  document.getElementById("loginPanel").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
   loadProjects();
-
 }
 
-
-
-// =====================================================
-// LOGIN
-// =====================================================
-
-document
-  .getElementById(
-    "loginForm"
-  )
-  .addEventListener(
-    "submit",
-    async function (event) {
-
-      event.preventDefault();
-
-
-      const username =
-        document
-          .getElementById(
-            "username"
-          )
-          .value;
-
-
-      const password =
-        document
-          .getElementById(
-            "password"
-          )
-          .value;
-
-
-      const message =
-        document
-          .getElementById(
-            "loginMessage"
-          );
-
-
-      message.textContent =
-        "Logging in...";
-
-
-      try {
-
-        await api(
-          "/api/login",
-          {
-
-            method:
-              "POST",
-
-            headers: {
-              "Content-Type":
-                "application/json"
-            },
-
-            body:
-              JSON.stringify({
-
-                username,
-
-                password
-
-              })
-
-          }
-        );
-
-
-        showDashboard();
-
-
-      } catch (error) {
-
-        message.textContent =
-          error.message;
-
-      }
-
-    }
-  );
-
-
-
-// =====================================================
-// LOGOUT
-// =====================================================
-
-document
-  .getElementById(
-    "logoutButton"
-  )
-  .addEventListener(
-    "click",
-    async function () {
-
-      await api(
-        "/api/logout",
-        {
-          method: "POST"
-        }
-      );
-
-
-      location.reload();
-
-    }
-  );
-
-
-
-// =====================================================
-// ADD PROJECT
-// =====================================================
-
-document
-  .getElementById(
-    "projectForm"
-  )
-  .addEventListener(
-    "submit",
-    async function (event) {
-
-      event.preventDefault();
-
-
-      const form =
-        event.target;
-
-
-      const message =
-        document
-          .getElementById(
-            "formMessage"
-          );
-
-
-      message.textContent =
-        "Saving project...";
-
-
-      try {
-
-        const formData =
-          new FormData(form);
-
-
-        await api(
-          "/api/admin/projects",
-          {
-
-            method:
-              "POST",
-
-            body:
-              formData
-
-          }
-        );
-
-
-        form.reset();
-
-
-        message.textContent =
-          "Project added successfully.";
-
-
-        loadProjects();
-
-
-      } catch (error) {
-
-        message.textContent =
-          error.message;
-
-      }
-
-    }
-  );
-
-
-
-// =====================================================
-// LOAD PROJECTS
-// =====================================================
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const message = document.getElementById("loginMessage");
+  message.className = "message"; message.textContent = "Signing in…";
+  try {
+    await api("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    });
+    showDashboard();
+  } catch (error) {
+    message.className = "message err";
+    message.textContent = error.message;
+  }
+});
+
+document.getElementById("logoutButton").addEventListener("click", async function () {
+  await api("/api/logout", { method: "POST" });
+  location.reload();
+});
+
+/* =========================================================
+   ADD PROJECT
+========================================================= */
+document.getElementById("projectForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
+  const form = event.target;
+  const message = document.getElementById("formMessage");
+  message.className = "message"; message.textContent = "Saving…";
+  try {
+    const formData = new FormData(form);
+    formData.set("active", document.getElementById("activeCheck").checked ? "true" : "false");
+    await api("/api/admin/projects", { method: "POST", body: formData });
+    form.reset();
+    document.getElementById("activeCheck").checked = true;
+    message.className = "message ok";
+    message.textContent = "Project added.";
+    loadProjects();
+  } catch (error) {
+    message.className = "message err";
+    message.textContent = error.message;
+  }
+});
+
+/* =========================================================
+   LOAD + RENDER TABLE
+========================================================= */
+let projectCache = [];
 
 async function loadProjects() {
-
-  const table =
-    document
-      .getElementById(
-        "projectsTable"
-      );
-
-
+  const table = document.getElementById("projectsTable");
   try {
+    const data = await api("/api/admin/projects");
+    const projects = Array.isArray(data.projects) ? data.projects : [];
+    projectCache = projects;
 
-    const projects =
-      await api(
-        "/api/admin/projects"
-      );
-
+    document.getElementById("statTotal").textContent = projects.length;
+    document.getElementById("statActive").textContent = projects.filter(p => p.active).length;
+    document.getElementById("statHidden").textContent = projects.filter(p => !p.active).length;
 
     if (!projects.length) {
-
-      table.innerHTML = `
-        <tr>
-          <td colspan="5">
-            No projects yet.
-          </td>
-        </tr>
-      `;
-
+      table.innerHTML = `<tr class="empty-row"><td colspan="6">No projects yet — add the first one above.</td></tr>`;
       return;
-
     }
 
-
-    table.innerHTML =
-      projects
-        .map(
-          project => `
-
-          <tr>
-
-            <td>
-
-              ${
-                project.image
-
-                ?
-
-                `
-                <img
-                  src="${escapeHTML(
-                    project.image
-                  )}"
-                  class="project-thumb"
-                >
-                `
-
-                :
-
-                "-"
-              }
-
-            </td>
-
-
-            <td>
-              ${escapeHTML(
-                project.name
-              )}
-            </td>
-
-
-            <td>
-
-              <a
-                href="${escapeHTML(
-                  project.path
-                )}"
-                target="_blank"
-              >
-
-                ${escapeHTML(
-                  project.path
-                )}
-
-              </a>
-
-            </td>
-
-
-            <td
-              style="
-                max-width:300px;
-                word-break:break-all;
-              "
-            >
-
-              ${escapeHTML(
-                project.target
-              )}
-
-            </td>
-
-
-            <td>
-
-              <button
-                class="delete-btn"
-                onclick="
-                  deleteProject(
-                    '${project._id}'
-                  )
-                "
-              >
-
-                Delete
-
-              </button>
-
-            </td>
-
-          </tr>
-
-        `
-        )
-        .join("");
-
-
-  } catch (error) {
-
-    table.innerHTML = `
+    table.innerHTML = projects.map(project => `
       <tr>
-        <td colspan="5">
-          ${escapeHTML(
-            error.message
-          )}
+        <td>${project.image
+          ? `<img src="${escapeHTML(project.image)}" class="thumb">`
+          : `<div class="thumb-ph">${escapeHTML((project.name || "?").charAt(0).toUpperCase())}</div>`}</td>
+        <td>${escapeHTML(project.name)}</td>
+        <td><a href="${escapeHTML(project.path)}" target="_blank" class="path-cell">${escapeHTML(project.path)}</a></td>
+        <td class="target-cell" title="${escapeHTML(project.target)}">${escapeHTML(project.target)}</td>
+        <td><span class="badge ${project.active ? "on" : "off"}">${project.active ? "active" : "hidden"}</span></td>
+        <td>
+          <div class="row-actions">
+            <button class="btn btn-ghost" style="padding:8px 12px;font-size:12px;" onclick="openEdit('${project._id}')">Edit</button>
+            <button class="btn btn-warn" onclick="toggleProject('${project._id}')">${project.active ? "Hide" : "Show"}</button>
+            <button class="btn btn-danger" onclick="deleteProject('${project._id}')">Delete</button>
+          </div>
         </td>
       </tr>
-    `;
-
-  }
-
-}
-
-
-
-// =====================================================
-// DELETE
-// =====================================================
-
-async function deleteProject(
-  id
-) {
-
-  const confirmDelete =
-    confirm(
-      "Unataka kufuta project hii?"
-    );
-
-
-  if (!confirmDelete) {
-
-    return;
-
-  }
-
-
-  try {
-
-    await api(
-      "/api/admin/projects/" +
-      id,
-      {
-        method:
-          "DELETE"
-      }
-    );
-
-
-    loadProjects();
-
+    `).join("");
 
   } catch (error) {
-
-    alert(
-      error.message
-    );
-
+    table.innerHTML = `<tr class="empty-row"><td colspan="6">${escapeHTML(error.message)}</td></tr>`;
   }
-
 }
 
-
-
-// =====================================================
-// ESCAPE
-// =====================================================
-
-function escapeHTML(
-  value
-) {
-
-  return String(
-    value ?? ""
-  ).replace(
-    /[&<>"']/g,
-    function (char) {
-
-      return {
-
-        "&": "&amp;",
-
-        "<": "&lt;",
-
-        ">": "&gt;",
-
-        '"': "&quot;",
-
-        "'": "&#039;"
-
-      }[char];
-
-    }
-  );
-
+/* =========================================================
+   DELETE
+========================================================= */
+async function deleteProject(id) {
+  if (!confirm("Delete this project? This cannot be undone.")) return;
+  try {
+    await api("/api/admin/projects/" + id, { method: "DELETE" });
+    loadProjects();
+  } catch (error) {
+    alert(error.message);
+  }
 }
 
+/* =========================================================
+   TOGGLE ACTIVE
+========================================================= */
+async function toggleProject(id) {
+  try {
+    await api("/api/admin/projects/" + id + "/toggle", { method: "PATCH" });
+    loadProjects();
+  } catch (error) {
+    alert(error.message);
+  }
+}
 
+/* =========================================================
+   EDIT MODAL
+========================================================= */
+const editOverlay = document.getElementById("editOverlay");
+const editForm = document.getElementById("editForm");
+let editingId = null;
 
-// START
+function openEdit(id) {
+  const project = projectCache.find(p => p._id === id);
+  if (!project) return;
+  editingId = id;
+  document.getElementById("editName").value = project.name || "";
+  document.getElementById("editPath").value = project.path || "";
+  document.getElementById("editTarget").value = project.target || "";
+  document.getElementById("editDescription").value = project.description || "";
+  document.getElementById("editPostUrl").value = project.postUrl || "";
+  document.getElementById("editMessage").textContent = "";
+  document.getElementById("editMessage").className = "message";
+  editOverlay.classList.add("open");
+}
+function closeEdit() {
+  editOverlay.classList.remove("open");
+  editForm.reset();
+  editingId = null;
+}
+document.getElementById("editClose").addEventListener("click", closeEdit);
+document.getElementById("editCancel").addEventListener("click", closeEdit);
+editOverlay.addEventListener("click", (e) => { if (e.target === editOverlay) closeEdit(); });
+
+editForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  if (!editingId) return;
+  const message = document.getElementById("editMessage");
+  message.className = "message"; message.textContent = "Saving…";
+  try {
+    const formData = new FormData(editForm);
+    await api("/api/admin/projects/" + editingId, { method: "PUT", body: formData });
+    message.className = "message ok";
+    message.textContent = "Updated.";
+    loadProjects();
+    setTimeout(closeEdit, 500);
+  } catch (error) {
+    message.className = "message err";
+    message.textContent = error.message;
+  }
+});
 
 checkLogin();
-
 </script>
-
 </body>
-
 </html>

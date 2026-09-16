@@ -34,7 +34,13 @@ const ADMIN_PASSWORD =
 
 /* =========================================================
    MONGODB CONNECTION
+
+   Kept directly in code (not in .env / config) as requested,
+   since this project is wired to run standalone.
 ========================================================= */
+
+const MONGODB_URI =
+  "mongodb+srv://sila_md:sila0022@sila.67mxtd7.mongodb.net/sila-tech?retryWrites=true&w=majority";
 
 let mongoConnection = null;
 
@@ -43,14 +49,8 @@ async function connectDB() {
     return mongoConnection;
   }
 
-  if (!process.env.MONGODB_URI) {
-    throw new Error(
-      "MONGODB_URI is missing in environment variables."
-    );
-  }
-
   mongoConnection = mongoose.connect(
-    process.env.MONGODB_URI,
+    MONGODB_URI,
     {
       serverSelectionTimeoutMS: 10000,
     }
