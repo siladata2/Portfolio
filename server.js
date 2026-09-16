@@ -937,44 +937,22 @@ const dynamicProxy =
     changeOrigin: true,
 
     /*
-      We dynamically choose the target
-      from MongoDB.
+      The outer middleware below already
+      resolves req.silaProject (either by
+      path prefix, or by Referer fallback
+      for unprefixed calls a sub-app makes
+      back to its own API). Router just
+      uses that — re-deriving it here from
+      req.path alone breaks unprefixed
+      calls, since they never match a
+      project path directly.
     */
-    router: async (req) => {
-      try {
-        await connectDB();
-
-        const firstPart =
-          getProjectPathFromRequest(
-            req.path
-          );
-
-        if (!firstPart) {
-          return "http://127.0.0.1:3000";
-        }
-
-        const project =
-          await Project.findOne({
-            path: firstPart,
-            active: true,
-          }).lean();
-
-        if (!project) {
-          return "http://127.0.0.1:3000";
-        }
-
-        req.silaProject =
-          project;
-
-        return project.target;
-      } catch (error) {
-        console.error(
-          "Proxy router error:",
-          error
-        );
-
-        return "http://127.0.0.1:3000";
+    router: (req) => {
+      if (req.silaProject) {
+        return req.silaProject.target;
       }
+
+      return "http://127.0.0.1:3000";
     },
 
     /*
@@ -987,6 +965,17 @@ const dynamicProxy =
         req.silaProject;
 
       if (!project) {
+        return requestPath;
+      }
+
+      /*
+        Fallback-matched request: the
+        sub-app called an absolute path
+        (e.g. /api/pairing-code) with no
+        /bot prefix to begin with, so
+        there is nothing to strip.
+      */
+      if (req.silaStripPrefix === false) {
         return requestPath;
       }
 
@@ -1203,12 +1192,62 @@ function escapeRegExp(string) {
 }
 
 /* =========================================================
+   RESERVED SILA TECH API ROUTES
+
+   Only these belong to SILA TECH itself.
+   Everything else under /api/... may
+   actually belong to a proxied sub-app
+   (a bot's own pairing/API endpoint,
+   for example) and must still be
+   eligible for proxying — see the
+   Referer fallback below.
+========================================================= */
+
+function isReservedApiPath(pathname) {
+  if (pathname === "/api/health") return true;
+  if (pathname === "/api/login") return true;
+  if (pathname === "/api/logout") return true;
+  if (pathname === "/api/me") return true;
+  if (pathname === "/api/projects") return true;
+  if (pathname.startsWith("/api/admin/")) return true;
+  if (pathname === "/api/admin/projects") return true;
+  return false;
+}
+
+/* =========================================================
+   REFERER FALLBACK
+
+   A page served from /bot often calls
+   its own API using an absolute path
+   like /api/pairing-code instead of
+   /bot/api/pairing-code. That request
+   arrives with no project prefix, so
+   we recover which project it belongs
+   to from the Referer header (the page
+   the browser was on when it fired the
+   request).
+========================================================= */
+
+function extractProjectPathFromReferer(refererHeader) {
+  if (!refererHeader) {
+    return null;
+  }
+
+  try {
+    const refererUrl = new URL(refererHeader);
+    return getProjectPathFromRequest(refererUrl.pathname);
+  } catch (error) {
+    return null;
+  }
+}
+
+/* =========================================================
    PROJECT PROXY ROUTE
 ========================================================= */
 
 /*
   We don't proxy:
-  /api/*
+  SILA TECH's own reserved /api routes
   /admin.html
   /style.css
   /app.js
@@ -1221,7 +1260,8 @@ app.use(async (req, res, next) => {
       req.path || "/";
 
     if (
-      pathname.startsWith("/api/")
+      pathname.startsWith("/api/") &&
+      isReservedApiPath(pathname)
     ) {
       return next();
     }
@@ -1242,22 +1282,50 @@ app.use(async (req, res, next) => {
       return next();
     }
 
+    await connectDB();
+
     const firstPart =
       getProjectPathFromRequest(
         pathname
       );
 
-    if (!firstPart) {
-      return next();
+    let project = null;
+    let stripPrefix = true;
+
+    if (firstPart) {
+      project =
+        await Project.findOne({
+          path: firstPart,
+          active: true,
+        }).lean();
     }
 
-    await connectDB();
+    /*
+      Direct prefix match failed (or the
+      path has no prefix at all, e.g.
+      /api/pairing-code). Check whether
+      the browser was on one of our
+      proxied project pages when it made
+      this request.
+    */
+    if (!project) {
+      const refererPart =
+        extractProjectPathFromReferer(
+          req.headers.referer
+        );
 
-    const project =
-      await Project.findOne({
-        path: firstPart,
-        active: true,
-      }).lean();
+      if (refererPart && refererPart !== firstPart) {
+        project =
+          await Project.findOne({
+            path: refererPart,
+            active: true,
+          }).lean();
+
+        if (project) {
+          stripPrefix = false;
+        }
+      }
+    }
 
     if (!project) {
       return next();
@@ -1269,6 +1337,9 @@ app.use(async (req, res, next) => {
     */
     req.silaProject =
       project;
+
+    req.silaStripPrefix =
+      stripPrefix;
 
     return dynamicProxy(
       req,
