@@ -1,0 +1,21 @@
+.thegem-te-logo.desktop-view .logo.desktop {
+    display: block;
+}
+.thegem-te-logo.desktop-view .logo.mobile {
+    display: none;
+}
+.thegem-te-logo.mobile-view .logo.desktop {
+    display: none;
+}
+.thegem-te-logo.mobile-view .logo.mobile {
+    display: block;
+}
+
+@media screen and (max-width: 767px) {
+    .thegem-te-logo.desktop-view .logo.desktop {
+        display: none;
+    }
+    .thegem-te-logo.desktop-view .logo.mobile {
+        display: block;
+    }
+}
