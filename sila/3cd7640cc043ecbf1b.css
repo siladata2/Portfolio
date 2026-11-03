@@ -1,0 +1,1123 @@
+.thegem-te-menu {
+    position: relative;
+    width: fit-content;
+}
+
+/* Menu toggle button style */
+.thegem-te-menu .menu-toggle,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle,
+.thegem-te-menu__overlay.desktop-view .menu-toggle{
+    position: relative;
+    width: 36px;
+    height: 30px;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+}
+.thegem-te-menu .menu-toggle.small,
+.thegem-te-menu .menu-toggle.dl-trigger,
+.thegem-te-menu-mobile__overlay.mobile-view .menu-toggle{
+    width: 18px;
+}
+@media (max-width: 767px) {
+    .thegem-te-menu-mobile__overlay .menu-toggle{
+        width: 18px;
+    }
+}
+.thegem-te-menu .menu-toggle .menu-line-1,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-1,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-1,
+.thegem-te-menu .menu-toggle .menu-line-2,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-2,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-2,
+.thegem-te-menu .menu-toggle .menu-line-3,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-3,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-3{
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    left: 0;
+    -webkit-transition: all 0.5s, top .3s, height .3s;
+    transition: all 0.5s, top .3s, height .3s;
+}
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-1,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-1,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-2,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-2,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-3,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-3{
+    background: var(--thegem-to-hamburger-menu-icon-color, #3C3950);
+}
+.thegem-te-menu .menu-toggle .menu-line-1,
+.thegem-te-menu .menu-toggle .menu-line-2,
+.thegem-te-menu .menu-toggle .menu-line-3 {
+    background: var(--thegem-to-mobile-menu-btn-color, #3C3950);
+}
+.thegem-te-menu .menu-toggle.small .menu-line-1,
+.thegem-te-menu .menu-toggle.dl-trigger .menu-line-1,
+.thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-1,
+.thegem-te-menu .menu-toggle.small .menu-line-2,
+.thegem-te-menu .menu-toggle.dl-trigger .menu-line-2,
+.thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-2,
+.thegem-te-menu .menu-toggle.small .menu-line-3,
+.thegem-te-menu .menu-toggle.dl-trigger .menu-line-3,
+.thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-3{
+    height: 2px;
+    width: 18px;
+}
+@media (max-width: 767px) {
+    .thegem-te-menu-mobile__overlay .menu-toggle .menu-line-1,
+    .thegem-te-menu-mobile__overlay .menu-toggle .menu-line-2,
+    .thegem-te-menu-mobile__overlay .menu-toggle .menu-line-3{
+        height: 2px;
+        width: 18px;
+    }
+}
+.thegem-te-menu .menu-toggle .menu-line-1,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-1,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-1{
+    top: 3px;
+}
+.thegem-te-menu .menu-toggle.small .menu-line-1,
+.thegem-te-menu .menu-toggle.dl-trigger .menu-line-1,
+.thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-1{
+    top: 9px;
+}
+@media (max-width: 767px) {
+    .thegem-te-menu-mobile__overlay .menu-toggle .menu-line-1{
+        top: 9px;
+    }
+}
+.thegem-te-menu .menu-toggle .menu-line-2,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-2,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-2{
+    top: 13px;
+}
+.thegem-te-menu .menu-toggle.small .menu-line-2,
+.thegem-te-menu .menu-toggle.dl-trigger .menu-line-2,
+.thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-2{
+    top: 14px;
+}
+@media (max-width: 767px) {
+    .thegem-te-menu-mobile__overlay .menu-toggle .menu-line-2{
+        top: 14px;
+    }
+}
+.thegem-te-menu .menu-toggle .menu-line-3,
+.thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-3,
+.thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-3{
+    top: 23px;
+}
+.thegem-te-menu .menu-toggle.small .menu-line-3,
+.thegem-te-menu .menu-toggle.dl-trigger .menu-line-3,
+.thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-3{
+    top: 19px;
+}
+@media (max-width: 767px) {
+    .thegem-te-menu-mobile__overlay .menu-toggle .menu-line-3{
+        top: 19px;
+    }
+}
+@media (-webkit-device-pixel-ratio: 1.25) {
+    .thegem-te-menu .menu-toggle.small .menu-line-1,
+    .thegem-te-menu .menu-toggle.dl-trigger .menu-line-1,
+    .thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-1,
+    .thegem-te-menu .menu-toggle.small .menu-line-2,
+    .thegem-te-menu .menu-toggle.dl-trigger .menu-line-2,
+    .thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-2,
+    .thegem-te-menu .menu-toggle.small .menu-line-3,
+    .thegem-te-menu .menu-toggle.dl-trigger .menu-line-3,
+    .thegem-te-menu-mobile__overlay.mobile-view .menu-toggle .menu-line-3{
+        height: 1.6px;
+    }
+}
+
+.thegem-te-menu .nav-menu > li > a {
+    position: relative;
+}
+
+/* Mega Menu Styles*/
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a {
+    font-family: var(--thegem-to-menu-font-family, 'Montserrat');
+    font-style: var(--thegem-to-menu-font-style, normal);
+    font-weight: var(--thegem-to-menu-font-weight, 700);
+    font-size: var(--thegem-to-menu-font-size, 14px);
+    line-height: var(--thegem-to-menu-line-height, 25px);
+    letter-spacing: var(--thegem-to-menu-letter-spacing, 0);
+    text-transform: var(--thegem-to-menu-text-transform, uppercase);
+    text-decoration: none;
+    color: var(--thegem-to-menu-level1-color, #3C3950);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul li > a {
+    font-family: var(--thegem-to-submenu-font-family, 'Source Sans Pro');
+    font-style: var(--thegem-to-submenu-font-style, normal);
+    font-weight: var(--thegem-to-submenu-font-weight, normal);
+    font-size: var(--thegem-to-submenu-font-size, 16px);
+    line-height: var(--thegem-to-submenu-line-height, 20px);
+    letter-spacing: var(--thegem-to-submenu-letter-spacing, 0);
+    text-transform: var(--thegem-to-submenu-text-transform, none);
+}
+.thegem-te-menu nav.mobile-view .mega-label {
+    display: none;
+}
+@media (max-width: 767px) {
+    .thegem-te-menu .mega-label {
+        display: none;
+    }
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li .mega-label {
+    color: var(--thegem-to-main-bg-color, #FFFFFF)
+}
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li.menu-item-current > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li.menu-item-active > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li.menu-item-current > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li.menu-item-active > a,
+.thegem-te-menu.menu--light-submenu.desktop-view .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a,
+.thegem-te-menu.menu--light-submenu.desktop-view .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a,
+.thegem-te-menu.menu--light-submenu.desktop-view .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a {
+    border-color: var(--thegem-to-styled-color1, #00BCD4);
+}
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a {
+    /*border-color: var(--thegem-to-submenu-highlighter-color);*/
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li .mega-label {
+    background-color: var(--thegem-to-styled-color3, #f44336);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul li > a:hover,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul li.menu-item-current > a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul li.menu-item-active > a {
+    background-color: var(--thegem-to-menu-level1-color-hover, #00bcd4);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li > a {
+    color: var(--thegem-to-menu-level2-color, #5f727f);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li > a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu> li.megamenu-enable.megamenu-style-grid > ul li > span.megamenu-column-header > a {
+    background-color: var(--thegem-to-menu-level2-bg-color, #f4f6f7);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li:hover > a {
+    color: var(--thegem-to-menu-level2-hover-color, #3c3950);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li:hover > a {
+    background-color: var(--thegem-to-menu-level2-hover-bg-color, #ffffff);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li.menu-item-current > a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li.menu-item-active > a {
+    color: var(--thegem-to-menu-level2-active-color, #3c3950);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li.menu-item-current > a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul li.menu-item-active > a {
+    background-color: var(--thegem-to-menu-level2-active-bg-color, #ffffff);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a.mega-no-link {
+    color: var(--thegem-to-mega-menu-column-title-color, #3c3950);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a:hover {
+    color: var(--thegem-to-mega-menu-column-title-hover-color, #00bcd4);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li.menu-item-active > span.megamenu-column-header a {
+    color: var(--thegem-to-mega-menu-column-title-active-color, #00bcd4);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li:not(.megamenu-template-enable):not(.menu-item-type-template) li li:hover > a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul li.menu-item-current > a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul li.menu-item-active > a {
+    color: var(--thegem-to-menu-level3-hover-color, #ffffff);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header {
+    border-top: 1px solid var(--thegem-to-menu-level2-border-color, #dfe5e8);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li {
+    border-bottom: 1px solid var(--thegem-to-menu-level2-border-color, #dfe5e8);
+    border-left: 1px solid var(--thegem-to-menu-level2-border-color, #dfe5e8);
+    border-right: 1px solid var(--thegem-to-menu-level2-border-color, #dfe5e8);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header:not(:last-child) {
+    border-bottom: 1px solid var(--thegem-to-menu-level2-border-color, #dfe5e8);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul {
+    border: 1px solid var(--thegem-to-menu-level2-border-color, #dfe5e8);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a.megamenu-has-icon:before,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li > ul > li > a:before {
+    color: var(--thegem-to-mega-menu-icons-color, #5F727FFF);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a:hover.megamenu-has-icon:before,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li > ul > li > a:hover:before {
+    color: inherit;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul:not(.megamenu-item-inited) {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+    -o-transform: translateY(20px) !important;
+    -ms-transform: translateY(20px) !important;
+    -moz-transform: translateY(20px) !important;
+    -webkit-transform: translateY(20px) !important;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li > ul ul {
+    display: none;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul {
+    width: auto;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+    font-size: 0;
+    line-height: 1;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul.megamenu-masonry.megamenu-masonry-inited > li {
+    position: absolute;
+}
+#site-header.without-transition *,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu li > ul.without-transition,
+#primary-navigation.without-transition ul {
+    transition: none !important;
+    -moz-transition: none !important;
+    -webkit-transition: none !important;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable ul {
+    width: auto;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul ul {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul:not(.megamenu-masonry) > li.megamenu-no-right-border,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul:not(.megamenu-masonry) > li.megamenu-no-right-border span.megamenu-column-header {
+    border-right: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li {
+    display: inline-block;
+    vertical-align: top;
+    border: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li {
+    margin: 0 0 -1px -1px;
+    border-top: 0 !important;
+    /*border-bottom: 0 !important;*/
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul.megamenu-masonry > li {
+    /*margin: -1px 0 -1px -1px;*/
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li {
+    margin: 0 0 0 31px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li.megamenu-first-element {
+    margin-left: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li.megamenu-new-row {
+    display: block;
+    font-size: 0;
+    line-height: 1;
+    height: 0;
+    padding: 0 !important;
+    margin: 0 0 1px 0;
+    border: none;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul.megamenu-masonry > li.megamenu-new-row {
+    /*margin-bottom: 0;*/
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li.megamenu-new-row {
+    margin: 0 0 7px 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default ul ul {
+    border: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default li,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default li.menu-item-current,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default li.menu-item-active {
+    background: none;
+    border: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header {
+    display: block;
+    border-top: 0;
+    position: relative;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li span.megamenu-column-header {
+    padding-top: 8px;
+    padding-bottom: 12px;
+    margin-bottom: 11px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li a {
+    display: block;
+    background: none;
+    padding: 0;
+    -o-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul li:hover > a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default li.menu-item-current > a,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default li.menu-item-active > a {
+    border: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default li.menu-item-parent > a:after {
+    display: none;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a {
+    text-transform: uppercase;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li span.megamenu-column-header a {
+    padding: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li span.megamenu-column-header a {
+    display: block;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a.mega-no-link {
+    pointer-events: none;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header.mega-not-show {
+    display: none;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li span.megamenu-column-header a.megamenu-has-icon {
+    padding-left: 26px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li span.megamenu-column-header a.megamenu-has-icon {
+    padding-left: 56px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li span.megamenu-column-header a.megamenu-has-icon:before {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    font-weight: normal;
+    font-family: 'FontAwesome';
+    content: attr(data-icon);
+    font-size: 14px;
+    vertical-align: baseline;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li span.megamenu-column-header a.megamenu-has-icon:before {
+    left: 30px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li .mega-label {
+    display: inline;
+    font-size: 65%;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 0 4px 0px 4px;
+    margin: 0 0 0 10px;
+
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+#thegem-perspective .perspective-navigation .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a {
+    padding-left: 55px;
+}
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li > a {
+    padding-left: 52px;
+}
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a,
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a,
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a {
+    padding-left: 52px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li > ul li > a {
+    position: relative;
+    padding: 8px 12px 8px 47px;
+    vertical-align: middle;
+    margin-left: -20px;
+    border-left: 0 none;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li > ul > li > a:before {
+    display: inline-block;
+    font-weight: normal;
+    font-family: 'FontAwesome';
+    content: "\f105";
+    font-size: 14px;
+    vertical-align: baseline;
+    width: 25px;
+    text-align: left;
+    margin-left: -13px;
+    padding-left: 4px;
+    position: absolute;
+    left: 34px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul > li > a:before {
+    margin: 0;
+    left: 27px;
+}
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a:before,
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a:before,
+.header-layout-fullwidth_hamburger.logo-position-right .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a:before,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a:before,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a:before,
+.header-style-2 .thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a:before,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-current > a:before,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li.menu-item-active > a:before,
+.thegem-te-menu.menu--light-submenu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-grid > ul > li > ul li:hover > a:before {
+    left: 27px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li > ul > li.megamenu-has-icon > a::before {
+    content: attr(data-icon);
+    padding: 0;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li > ul > li > a:before {
+    margin-right: 0;
+    font-size: 14px;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable.megamenu-style-default > ul > li > ul > li.megamenu-has-icon > a::before {
+    font-family: 'FontAwesome';
+    content: attr(data-icon);
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable > ul > li > ul {
+    position: static !important;
+    transform: translateX(0) !important;
+    -o-transform: translateX(0) !important;
+    -ms-transform: translateX(0)!important;
+    -moz-transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
+}
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable:hover > ul > li > ul,
+.thegem-te-menu nav:not(.mobile-view) .nav-menu > li.menu-item.megamenu-enable:focus-within > ul > li > ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.thegem-te-menu .nav-menu.submenu-icon > li:not(.menu-item-has-children):not(.menu-item-type-socials-widget) > a i,
+.thegem-te-menu .nav-menu.submenu-icon > li.menu-item-has-children:not(.menu-item-type-socials-widget) li a i,
+.thegem-te-menu .nav-menu.submenu-icon > li:not(.menu-item-has-children):not(.menu-item-type-socials-widget) > a svg,
+.thegem-te-menu .nav-menu.submenu-icon > li.menu-item-has-children:not(.menu-item-type-socials-widget) li a svg {
+    display: none;
+}
+@media screen and (max-width: 979px) {
+    .thegem-te-menu .nav-menu.submenu-icon li:not(.menu-item-type-socials-widget) a i,
+    .thegem-te-menu .nav-menu.submenu-icon li:not(.menu-item-type-socials-widget) a svg {
+        display: none !important;
+    }
+}
+.thegem-te-menu .nav-menu.submenu-icon > li.menu-item-has-children:not(.menu-item-type-socials-widget) > a i,
+.thegem-te-menu .nav-menu.submenu-icon > li.menu-item-has-children:not(.menu-item-type-socials-widget) > a svg {
+    display: inline-block;
+    font-style: normal;
+    font-size: var(--thegem-to-body-tiny-font-size);
+    line-height: 1;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.thegem-te-menu .nav-menu.submenu-icon > li.menu-item-has-children:not(.menu-item-type-socials-widget) > a svg {
+    max-width: var(--thegem-to-body-tiny-font-size);
+    max-height: var(--thegem-to-body-tiny-font-size);
+}
+.thegem-te-menu .nav-menu.submenu-icon > li.menu-item-has-children:not(.menu-item-type-socials-widget) > a i.default:before {
+    content: '\e602';
+    font-family: 'thegem-icons';
+}
+.thegem-te-menu nav.desktop-view .nav-menu.submenu-hide-border > li ul,
+.thegem-te-menu nav.desktop-view .nav-menu.submenu-hide-border > li ul li {
+    border: none !important;
+}
+.thegem-te-menu nav.desktop-view .nav-menu.submenu-hide-border > li.megamenu-enable.megamenu-style-grid ul li {
+    margin: 0 !important;
+}
+
+/*Use Light Color Scheme*/
+#site-header.header-light .thegem-te-menu__default.desktop-view ul.nav-menu > li > a{
+    color: var(--header-builder-light-color, #FFFFFF);
+}
+#site-header.header-light .thegem-te-menu__default.desktop-view ul.nav-menu > li:hover > a{
+    color: var(--header-builder-light-color-hover, var(--thegem-to-menu-level1-color-hover));
+}
+#site-header.header-light .thegem-te-menu__default.desktop-view ul.nav-menu > li.menu-item-active > a,
+#site-header.header-light .thegem-te-menu__default.desktop-view ul.nav-menu > li.menu-item-active > a:hover,
+#site-header.header-light .thegem-te-menu__default.desktop-view ul.nav-menu > li.menu-item-current > a,
+#site-header.header-light .thegem-te-menu__default.desktop-view ul.nav-menu > li.menu-item-current > a:hover{
+    color: var(--header-builder-light-color, #FFFFFF);
+}
+#site-header.header-light .thegem-te-menu .menu-toggle .menu-line-1,
+#site-header.header-light .thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-1,
+#site-header.header-light .thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-1,
+#site-header.header-light .thegem-te-menu .menu-toggle .menu-line-2,
+#site-header.header-light .thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-2,
+#site-header.header-light .thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-2,
+#site-header.header-light .thegem-te-menu .menu-toggle .menu-line-3,
+#site-header.header-light .thegem-te-menu__hamburger.desktop-view .menu-toggle .menu-line-3,
+#site-header.header-light .thegem-te-menu__overlay.desktop-view .menu-toggle .menu-line-3{
+    background: var(--header-builder-light-color);
+}
+
+.thegem-te-menu nav.different-source-mobile.desktop-view ul.nav-menu.mobile-menu-source,
+.thegem-te-menu nav.different-source-mobile.mobile-view ul.nav-menu:not(.mobile-menu-source) {
+    display: none;
+}
+
+
+/* Hover and Active Pointers */
+
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a:after,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a:before {
+    display: block;
+    position: absolute;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    -webkit-transition-timing-function: cubic-bezier(.58,.3,.005,1);
+    -o-transition-timing-function: cubic-bezier(.58,.3,.005,1);
+    transition-timing-function: cubic-bezier(.58,.3,.005,1);
+}
+
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a:before {
+    z-index: -1;
+}
+
+.thegem-te-menu nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before {
+    opacity: 0;
+}
+
+/* Style Hover Framed */
+
+.style-hover-framed.style-hover-type-frame-rounded nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a,
+.style-active-framed.style-active-type-frame-rounded nav.desktop-view ul.nav-menu > li.menu-item-active > a,
+.style-active-framed.style-active-type-frame-rounded nav.desktop-view ul.nav-menu > li.menu-item-current > a,
+.style-hover-framed.style-hover-type-frame-rounded nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-active-framed.style-active-type-frame-rounded nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-framed.style-active-type-frame-rounded nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+.style-hover-framed.style-hover-type-frame-rounded nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-active-framed.style-active-type-frame-rounded nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-framed.style-active-type-frame-rounded nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    border-radius: 20px;
+}
+
+.style-hover-framed nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+.style-hover-framed nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    background: transparent;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 2px solid var(--thegem-to-menu-level1-active-bg-color, #3c3950);
+}
+
+#site-header.header-light .style-hover-framed nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+#site-header.header-light .style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+#site-header.header-light .style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+#site-header.header-light .style-hover-framed nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+#site-header.header-light .style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+#site-header.header-light .style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    border-color: var(--header-builder-light-color, #FFFFFF);
+}
+
+.style-hover-framed nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-framed nav.desktop-view ul.nav-menu > li.menu-item-current > a:before {
+    content: '';
+}
+
+.style-hover-framed.style-hover-animation-grow nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before {
+    transform: scale(0.75);
+}
+
+.style-hover-framed.style-hover-animation-shrink nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before {
+    transform: scale(1.25);
+}
+
+.style-hover-framed.style-hover-animation-grow nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-framed.style-hover-animation-shrink nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before {
+    transition: opacity 0.2s, transform 0.4s;
+}
+
+.style-hover-framed.style-hover-animation-draw nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-framed.style-hover-animation-draw nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after {
+    width: 2px;
+    height: 2px;
+}
+
+.style-hover-framed.style-hover-animation-draw nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before {
+    border-width: 0 0 2px 2px;
+    transition: width 0.1s 0.2s, height 0.1s 0.3s, opacity 0.12s 0.22s;
+}
+
+.style-hover-framed.style-hover-animation-draw nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after {
+    content: '';
+    top: initial;
+    bottom: 0;
+    left: initial;
+    right: 0;
+    border-width: 2px 2px 0 0;
+    transition: width 0.1s, height 0.1s 0.1s, opacity 0.02s 0.18s;
+}
+
+.style-hover-framed.style-hover-animation-draw nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:before,
+.style-hover-framed.style-hover-animation-draw nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:after {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.style-hover-framed.style-hover-animation-draw nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:before {
+    transition: opacity 0.02s, height 0.1s, width 0.1s 0.1s;
+}
+
+.style-hover-framed.style-hover-animation-draw nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:after {
+    transition: opacity 0.02s 0.2s, height 0.1s 0.2s, width 0.1s 0.3s;
+}
+
+.style-hover-framed.style-hover-animation-corners nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-framed.style-hover-animation-corners nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after {
+    width: 2px;
+    height: 2px;
+}
+
+.style-hover-framed.style-hover-animation-corners nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before {
+    border-width: 2px 0 0 2px;
+}
+
+.style-hover-framed.style-hover-animation-corners nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after {
+    content: '';
+    top: initial;
+    bottom: 0;
+    left: initial;
+    right: 0;
+    border-width: 0 2px 2px 0;
+}
+
+.style-hover-framed.style-hover-animation-corners nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:before,
+.style-hover-framed.style-hover-animation-corners nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:after {
+    width: 100% !important;
+    height: 100% !important;
+    transition: opacity 0.002s, width 0.4s, height 0.4s;
+}
+
+.style-hover-framed.style-hover-animation-none,
+.style-hover-framed.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a {
+    transition-duration: 0s;
+}
+
+.style-hover-framed.style-hover-animation-none:before,
+.style-hover-framed.style-hover-animation-none:after,
+.style-hover-framed.style-hover-animation-none:hover,
+.style-hover-framed.style-hover-animation-none:focus,
+.style-hover-framed.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-framed.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-hover-framed.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a {
+    transition-duration: 0s;
+}
+
+
+/* Style Hover Lined */
+
+.style-hover-lined nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-active-lined nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-lined nav.desktop-view ul.nav-menu > li.menu-item-current > a:before {
+    content: '';
+    top: 0;
+}
+
+.style-hover-lined nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-active-lined nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-lined nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    content: '';
+    bottom: 0;
+}
+
+.style-hover-lined.style-hover-type-line-underline-1 nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-lined.style-hover-type-line-underline-2 nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-lined.style-hover-type-line-overline-1 nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-hover-lined.style-hover-type-line-overline-2 nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-active-lined.style-active-type-line-underline-1 nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-lined.style-active-type-line-underline-2 nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-lined.style-active-type-line-overline-1 nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-lined.style-active-type-line-overline-2 nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-lined.style-active-type-line-underline-1 nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+.style-active-lined.style-active-type-line-underline-2 nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+.style-active-lined.style-active-type-line-overline-1 nav.desktop-view ul.nav-menu > li.menu-item-current > a:after,
+.style-active-lined.style-active-type-line-overline-2 nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    content: none;
+}
+
+.style-hover-lined nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-active-lined nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-lined nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+.style-hover-lined nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-active-lined nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-lined nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background-color: var(--thegem-to-menu-level1-color-hover, #00BCD4);
+    z-index: 2;
+}
+
+.style-hover-lined.style-hover-type-line-top-bottom nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-active-lined.style-active-type-line-top-bottom nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-lined.style-active-type-line-top-bottom nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+.style-hover-lined.style-hover-type-line-top-bottom nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-active-lined.style-active-type-line-top-bottom nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-lined.style-active-type-line-top-bottom nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    background-color: var(--thegem-to-menu-level1-active-bg-color, #3c3950);
+}
+
+#site-header.header-light .style-hover-lined.style-hover-type-line-top-bottom nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+#site-header.header-light .style-active-lined.style-active-type-line-top-bottom nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+#site-header.header-light .style-active-lined.style-active-type-line-top-bottom nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+#site-header.header-light .style-hover-lined.style-hover-type-line-top-bottom nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+#site-header.header-light .style-active-lined.style-active-type-line-top-bottom nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+#site-header.header-light .style-active-lined.style-active-type-line-top-bottom nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    background-color: var(--header-builder-light-color, #FFFFFF);
+}
+
+.style-hover-lined.style-hover-animation-grow nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-lined.style-hover-animation-grow nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    height: 0;
+    width: 0;
+    left: 50%;
+}
+
+.style-hover-lined.style-hover-animation-drop-out nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before {
+    top: 10px;
+}
+
+.style-hover-lined.style-hover-animation-drop-out nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    bottom: 10px;
+}
+
+.style-hover-lined.style-hover-animation-drop-in nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before {
+    top: -10px;
+}
+
+.style-hover-lined.style-hover-animation-drop-in nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    bottom: -10px;
+}
+
+.style-hover-lined.style-hover-animation-none,
+.style-hover-lined.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a {
+    transition-duration: 0s;
+}
+
+.style-hover-lined.style-hover-animation-none:before,
+.style-hover-lined.style-hover-animation-none:after,
+.style-hover-lined.style-hover-animation-none:hover,
+.style-hover-lined.style-hover-animation-none:focus,
+.style-hover-lined.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-lined.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-hover-lined.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:hover,
+.style-hover-lined.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:focus {
+    transition-duration: 0s;
+}
+
+.style-hover-lined.style-hover-animation-slide-right nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-lined.style-hover-animation-slide-right nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    width: 10px;
+    left: -20px;
+}
+
+.style-hover-lined.style-hover-animation-slide-left nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-lined.style-hover-animation-slide-left nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    width: 10px;
+    left: calc(100% + 20px);
+}
+
+/* Style Hover Background */
+
+.style-hover-background nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-active-background nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-background nav.desktop-view ul.nav-menu > li.menu-item-current > a:before,
+.style-hover-background nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-active-background nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-background nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    content: '';
+    transition: 0.3s;
+}
+
+.style-hover-background nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-active-background nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-background nav.desktop-view ul.nav-menu > li.menu-item-current > a:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--thegem-to-menu-level1-hover-bg-color, #F4F6F7);
+    z-index: -1;
+}
+
+.style-hover-background.style-hover-type-background-underline nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after,
+.style-active-background.style-active-type-background-underline nav.desktop-view ul.nav-menu > li.menu-item-active > a:after,
+.style-active-background.style-active-type-background-underline nav.desktop-view ul.nav-menu > li.menu-item-current > a:after {
+    height: 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--thegem-to-menu-level2-border-color, #DFE5E8);
+    z-index: 2;
+}
+
+.style-hover-background.style-hover-type-background-underline nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a,
+.style-active-background.style-active-type-background-underline nav.desktop-view ul.nav-menu > li.menu-item-active > a,
+.style-active-background.style-active-type-background-underline nav.desktop-view ul.nav-menu > li.menu-item-current > a {
+    color: var(--thegem-to-menu-level1-color-hover, #00BCD4);
+}
+
+.style-hover-background.style-hover-type-background-rounded nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a,
+.style-active-background.style-active-type-background-rounded nav.desktop-view ul.nav-menu > li.menu-item-active > a,
+.style-active-background.style-active-type-background-rounded nav.desktop-view ul.nav-menu > li.menu-item-current > a {
+    color: #fff;
+}
+
+.style-hover-background.style-hover-type-background-rounded nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:before,
+.style-active-background.style-active-type-background-rounded nav.desktop-view ul.nav-menu > li.menu-item-active > a:before,
+.style-active-background.style-active-type-background-rounded nav.desktop-view ul.nav-menu > li.menu-item-current > a:before {
+    background-color: var(--thegem-to-menu-level1-color-hover, #00BCD4);
+    border-radius: 20px;
+}
+
+.style-hover-background.style-hover-animation-grow nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-background.style-hover-animation-grow nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after {
+    transform: scale(0.5);
+}
+
+.style-hover-background.style-hover-animation-grow nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:before,
+.style-hover-background.style-hover-animation-grow nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.style-hover-background.style-hover-animation-shrink nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-background.style-hover-animation-shrink nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+.style-hover-background.style-hover-animation-shrink nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:before,
+.style-hover-background.style-hover-animation-shrink nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a:after {
+    transition: opacity 0.15s, transform 0.4s;
+}
+
+.style-hover-background.style-hover-animation-sweep-left nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-background.style-hover-animation-sweep-left nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    left: 100%;
+}
+
+.style-hover-background.style-hover-animation-sweep-right nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-background.style-hover-animation-sweep-right nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    right: 100%;
+}
+
+.style-hover-background.style-hover-animation-sweep-up nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-background.style-hover-animation-sweep-up nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    top: 100%;
+}
+
+.style-hover-background.style-hover-animation-sweep-down nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-background.style-hover-animation-sweep-down nav.desktop-view ul.nav-menu > li:not(:hover):not(:focus):not(.highlighted):not(.menu-item-active):not(.menu-item-current) > a:after {
+    bottom: 100%;
+}
+
+.style-hover-background.style-hover-animation-none,
+.style-hover-background.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a {
+    transition-duration: 0s;
+}
+
+.style-hover-background.style-hover-animation-none:before,
+.style-hover-background.style-hover-animation-none:after,
+.style-hover-background.style-hover-animation-none:hover,
+.style-hover-background.style-hover-animation-none:focus,
+.style-hover-background.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:before,
+.style-hover-background.style-hover-animation-none nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current) > a:after {
+    transition-duration: 0s;
+}
+
+/* Style Hover Text Color */
+
+.style-hover-text nav.desktop-view ul.nav-menu > li:not(.menu-item-active):not(.menu-item-current):hover > a {
+    color: var(--thegem-to-menu-level1-color-hover, #00BCD4);
+}
+
+.style-active-text nav.desktop-view ul.nav-menu > li.menu-item-active > a,
+.style-active-text nav.desktop-view ul.nav-menu > li.menu-item-current > a {
+    color: var(--thegem-to-menu-level1-active-color, #3C3950);
+}
+
+.thegem-te-menu nav.mobile-view .megamenu-template {
+    display: none;
+}
+
+.thegem-te-menu nav.desktop-view ul.nav-menu > li.megamenu-template-enable .sub-menu {
+    display: none !important;
+}
+
+.thegem-te-menu ul.nav-menu .megamenu-template {
+    background-color: var(--thegem-to-main-bg-color, #FFFFFF);
+    font-size: initial;
+}
+
+.thegem-te-menu ul.nav-menu .megamenu-template .container {
+    max-width: 100%;
+}
+
+.thegem-te-menu ul.nav-menu .megamenu-template .wpb_row {
+    margin-bottom: 0;
+}
+
+.thegem-te-menu ul.nav-menu .megamenu-template .vc_row {
+    margin-left: -21px;
+    margin-right: -21px;
+}
+
+.thegem-te-menu ul.nav-menu .megamenu-template.template-width-custom .container {
+    width: 100%;
+}
+
+.thegem-te-menu ul.nav-menu .megamenu-template > .container > p:empty {
+    display: none;
+}
+
+.thegem-te-menu nav.desktop-view ul.nav-menu > li.megamenu-template-enable:not(:hover) .megamenu-template * {
+    transition: none !important;
+}
+
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h3,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h4,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h5,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h6,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.styled-subtitle,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body-tiny {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h3,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h3 ~ span{
+    font-family: var(--thegem-to-h3-font-family);
+    font-style: var(--thegem-to-h3-font-style);
+    font-weight: var(--thegem-to-h3-font-weight);
+    text-transform: var(--thegem-to-h3-text-transform);
+    font-size: var(--thegem-to-h3-font-size);
+    line-height: var(--thegem-to-h3-line-height);
+    letter-spacing: var(--thegem-to-h3-letter-spacing);
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h3.light,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h3.light ~ span{
+    font-family: var(--thegem-to-light-title-font-family);
+    font-style: normal;
+    font-weight: normal;
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h4,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h4 ~ span{
+    font-family: var(--thegem-to-h4-font-family);
+    font-style: var(--thegem-to-h4-font-style);
+    font-weight: var(--thegem-to-h4-font-weight);
+    text-transform: var(--thegem-to-h4-text-transform);
+    font-size: var(--thegem-to-h4-font-size);
+    line-height: var(--thegem-to-h4-line-height);
+    letter-spacing: var(--thegem-to-h4-letter-spacing);
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h4.light,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h4.light ~ span{
+    font-family: var(--thegem-to-light-title-font-family);
+    font-style: normal;
+    font-weight: normal;
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h5,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h5 ~ span{
+    font-family: var(--thegem-to-h5-font-family);
+    font-style: var(--thegem-to-h5-font-style);
+    font-weight: var(--thegem-to-h5-font-weight);
+    text-transform: var(--thegem-to-h5-text-transform);
+    font-size: var(--thegem-to-h5-font-size);
+    line-height: var(--thegem-to-h5-line-height);
+    letter-spacing: var(--thegem-to-h5-letter-spacing);
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h5.light,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h5.light ~ span{
+    font-family: var(--thegem-to-light-title-font-family);
+    font-style: normal;
+    font-weight: normal;
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h6,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h6 ~ span{
+    font-family: var(--thegem-to-h6-font-family);
+    font-style: var(--thegem-to-h6-font-style);
+    font-weight: var(--thegem-to-h6-font-weight);
+    text-transform: var(--thegem-to-h6-text-transform);
+    font-size: var(--thegem-to-h6-font-size);
+    line-height: var(--thegem-to-h6-line-height);
+    letter-spacing: var(--thegem-to-h6-letter-spacing);
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h6.light,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-h6.light ~ span{
+    font-family: var(--thegem-to-light-title-font-family);
+    font-style: normal;
+    font-weight: normal;
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.styled-subtitle,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.styled-subtitle ~ span{
+    font-family: var(--thegem-to-styled-subtitle-font-family);
+    font-style: var(--thegem-to-styled-subtitle-font-style);
+    font-weight: var(--thegem-to-styled-subtitle-font-weight);
+    text-transform: var(--thegem-to-styled-subtitle-text-transform);
+    font-size: var(--thegem-to-styled-subtitle-font-size);
+    line-height: var(--thegem-to-styled-subtitle-line-height);
+    letter-spacing: var(--thegem-to-styled-subtitle-letter-spacing);
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.styled-subtitle.light,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.styled-subtitle.light ~ span{
+    font-family: var(--thegem-to-light-title-font-family);
+    font-style: normal;
+    font-weight: normal;
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body ~ span{
+    font-family: var(--thegem-to-body-font-family);
+    font-style: var(--thegem-to-body-font-style);
+    font-weight: var(--thegem-to-body-font-weight);
+    text-transform: var(--thegem-to-body-text-transform);
+    font-size: var(--thegem-to-body-font-size);
+    line-height: var(--thegem-to-body-line-height);
+    letter-spacing: var(--thegem-to-body-letter-spacing);
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body.light,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body.light ~ span{
+    font-family: var(--thegem-to-light-title-font-family);
+    font-style: normal;
+    font-weight: normal;
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body-tiny,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body-tiny ~ span{
+    font-family: var(--thegem-to-body-tiny-font-family);
+    font-style: var(--thegem-to-body-tiny-font-style);
+    font-weight: var(--thegem-to-body-tiny-font-weight);
+    text-transform: var(--thegem-to-body-tiny-text-transform);
+    font-size: var(--thegem-to-body-tiny-font-size);
+    line-height: var(--thegem-to-body-tiny-line-height);
+    letter-spacing: var(--thegem-to-body-tiny-letter-spacing);
+}
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body-tiny.light,
+.thegem-te-menu nav.desktop-view ul.nav-menu > li > a.title-text-body-tiny.light ~ span{
+    font-family: var(--thegem-to-light-title-font-family);
+    font-style: normal;
+    font-weight: normal;
+}
