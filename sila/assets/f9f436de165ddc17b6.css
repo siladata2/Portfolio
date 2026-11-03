@@ -1,0 +1,90 @@
+.thegem-ken-burns-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 0;
+	--transition: 1000ms;
+	--scale: 1.15;
+	border-radius: var(--border-radius);
+}
+.thegem-ken-burns-bg.slides {
+	--scale: 1.3;
+}
+
+.thegem-ken-burns-bg .thegem-ken-burns-slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	transition: opacity var(--transition) linear;
+	will-change: transform, opacity;
+	opacity: 1;
+	--duration: 20000ms;
+}
+.thegem-ken-burns-bg .thegem-ken-burns-slide.crossFade-out {
+	opacity: 0;
+}
+.thegem-ken-burns-bg.slides .thegem-ken-burns-slide {
+	animation-timing-function: linear;
+}
+
+.thegem-ken-burns-bg .thegem-ken-burns-slide.active {
+	animation-duration: var(--duration);
+}
+
+.thegem-ken-burns-slide[data-direction="zoom-in"] {
+	transform: scale(1);
+}
+.thegem-ken-burns-slide[data-direction="zoom-out"] {
+	transform: scale(var(--scale));
+}
+
+.thegem-ken-burns-slide.active[data-direction="zoom-in"] {
+	animation: kenBurnsZoomIn var(--duration) forwards;
+}
+.thegem-ken-burns-slide.active[data-direction="zoom-out"] {
+	animation: kenBurnsZoomOut var(--duration) forwards;
+}
+.thegem-ken-burns-bg .thegem-ken-burns-slide {
+		animation-timing-function: ease;
+}
+.thegem-ken-burns-bg.slides .thegem-ken-burns-slide {
+	animation-timing-function: linear;
+}
+
+@keyframes kenBurnsZoomIn {
+	0% { transform: scale(1); }
+	100% { transform: scale(var(--scale)); }
+}
+
+@keyframes kenBurnsZoomOut {
+	0% { transform: scale(var(--scale)); }
+	100% { transform: scale(1); }
+}
+
+:is(.e-con, .e-con > .e-con-inner) > .thegem-ken-burns-bg::before {
+	border-block-end-width: var(--border-block-end-width);
+	border-block-start-width: var(--border-block-start-width);
+	border-color: var(--border-color);
+	border-inline-end-width: var(--border-inline-end-width);
+	border-inline-start-width: var(--border-inline-start-width);
+	border-radius: var(--border-radius);
+	border-style: var(--border-style);
+	content: var(--background-overlay);
+	display: block;
+	height: max(100% + var(--border-top-width) + var(--border-bottom-width),100%);
+	left: calc(0px - var(--border-left-width));
+	mix-blend-mode: var(--overlay-mix-blend-mode);
+	opacity: var(--overlay-opacity);
+	position: absolute;
+	top: calc(0px - var(--border-top-width));
+	transition: var(--overlay-transition,.3s);
+	width: max(100% + var(--border-left-width) + var(--border-right-width),100%);
+	z-index: 2;
+}

@@ -1,0 +1,279 @@
+.gem-infobox,
+.gem-infobox-wrapper,
+.gem-infobox .gem-infobox-content,
+.gem-infobox .gem-texbox-icon-image-wrapper .elementor-icon,
+.gem-infobox .gem-texbox-icon-image-wrapper .elementor-icon i,
+.gem-infobox .gem-image,
+.gem-infobox .gem-image img,
+.gem-infobox .gem-image span,
+.gem-infobox .gem-image span:before,
+.gem-infobox .gem-infobox-title,
+.gem-infobox .gem-infobox-subtitle,
+.gem-infobox .gem-infobox-description,
+.gem-infobox .gem-button-container,
+.gem-infobox .gem-infobox-top,
+.gem-infobox .gem-infobox-top svg,
+.gem-infobox .gem-infobox-bottom,
+.gem-infobox .gem-infobox-bottom svg {
+	-o-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.gem-infobox-content {
+	padding: 30px;
+}
+
+.gem-infobox-top,
+.gem-infobox-bottom {
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+}
+
+.gem-styled-textbox-link,
+.gem-styled-textbox-icon-image-link {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.gem-texbox-icon-image-wrapper {
+	position: relative;
+}
+
+.gem-infobox .gem-infobox-icon-horizontal-right.gem-infobox-icon-image-wrapping-inline .gem-texbox-icon-image-wrapper {
+	margin-left: 10px;
+}
+
+.gem-infobox .gem-infobox-icon-horizontal-left.gem-infobox-icon-image-wrapping-inline .gem-texbox-icon-image-wrapper {
+	margin-right: 10px;
+}
+
+.gem-infobox .gem-texbox-icon-image-wrapper .gem-infobox-icon {
+	display: inline-block;
+	width: fit-content;
+}
+
+.gem-infobox h4,
+.gem-infobox .title-h4 {
+	margin-top: 0;
+}
+
+.gem-infobox-content .gem-image span {
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	max-width: 100%;
+	position: relative;
+}
+
+.gem-infobox-content .gem-image span::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	-o-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	opacity: 0;
+	z-index: 1;
+}
+
+.gem-infobox:hover .gem-infobox-content .gem-image a::before,
+.gem-infobox:hover .gem-infobox-content .gem-image span::before {
+	opacity: 1;
+}
+
+.gem-infobox .gem-infobox-icon-horizontal-right .gem-icon-with-text-icon {
+	padding-right: 0px;
+	padding-left: 10px;
+}
+
+/* Icon Bottom */
+
+.gem-infobox-content.icon-bottom {
+	display: flex;
+	flex-direction: column;
+}
+
+.gem-infobox .icon-bottom .gem-texbox-text-wrapper {
+	order: 1;
+}
+
+.gem-infobox .icon-bottom .gem-texbox-icon-image-wrapper {
+	order: 2;
+	margin-top: 30px;
+}
+
+
+/* Icon Bottom + Button Bottom */
+
+.gem-infobox-content.icon-bottom,
+.gem-infobox-content.button-top {
+	display: flex;
+	flex-direction: column;
+}
+
+.gem-infobox .icon-bottom.button-bottom .gem-texbox-text-wrapper {
+	order: 1;
+}
+
+.gem-infobox .icon-bottom.button-bottom .gem-texbox-icon-image-wrapper {
+	order: 2;
+}
+
+
+/* Icon Top + Button Top */
+
+.gem-infobox-content.icon-top.button-top .gem-texbox-text-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.gem-infobox-content.icon-top.button-top .gem-button-container {
+	order: 1;
+}
+
+.gem-infobox-content.icon-top.button-top .gem-infobox-title {
+	order: 2;
+}
+
+.gem-infobox-content.icon-top.button-top .gem-infobox-description {
+	order: 3;
+}
+
+
+/* Icon Bottom + Button Top */
+
+.gem-infobox-content.icon-bottom.button-top .gem-texbox-text-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.gem-infobox-content.icon-bottom.button-top .gem-button-container {
+	order: 1;
+}
+
+.gem-infobox-content.icon-bottom.button-top .gem-infobox-title {
+	order: 2;
+}
+
+.gem-infobox-content.icon-bottom.button-top .gem-infobox-description {
+	order: 3;
+}
+
+.gem-infobox-content.icon-bottom.button-top .gem-texbox-text-wrapper {
+	order: 1;
+}
+
+.gem-infobox-content.icon-bottom.button-top .gem-texbox-icon-image-wrapper {
+	order: 2;
+	margin-top: 30px;
+}
+
+.gem-infobox-icon .elementor-icon {
+	display: block;
+	color: var(--thegem-to-menu-level1-color, #3C3950);
+}
+
+.gem-infobox-icon-horizontal-center .gem-texbox-icon-image-wrapper {
+	text-align: center !important;
+}
+
+.gem-infobox-icon-horizontal-left .gem-texbox-icon-image-wrapper {
+	text-align: left !important;
+}
+
+.gem-infobox-icon-horizontal-right .gem-texbox-icon-image-wrapper {
+	text-align: right !important;
+}
+
+.gem-infobox-icon-horizontal-right.gem-infobox-icon-image-wrapping-wrap .gem-texbox-icon-image-wrapper {
+	float: right;
+}
+
+.gem-infobox-icon-horizontal-left.gem-infobox-icon-image-wrapping-wrap .gem-texbox-icon-image-wrapper {
+	float: left;
+}
+
+.gem-infobox-icon-image-wrapping-inline {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.gem-infobox-icon-image-wrapping-inline .gem-texbox-text-wrapper {
+	flex-grow: 1;
+}
+
+.gem-infobox-icon-image-wrapping-inline.gem-infobox-icon-horizontal-right {
+	flex-direction: row-reverse;
+}
+
+.icon-bottom.gem-infobox-icon-image-wrapping-inline.gem-infobox-icon-horizontal-right {
+	flex-direction: row;
+}
+
+.gem-infobox-icon-image-wrapping-inline.gem-infobox-icon-horizontal-left {
+	flex-direction: row;
+}
+.icon-bottom.gem-infobox-icon-image-wrapping-inline.gem-infobox-icon-horizontal-left {
+	flex-direction: row-reverse;
+}
+
+.icon-bottom.gem-infobox-icon-image-wrapping-inline {
+	align-items: flex-end;
+}
+
+.icon-top.gem-infobox-icon-image-wrapping-inline {
+	align-items: flex-start;
+}
+
+.gem-infobox-title.title-default,
+.gem-infobox-subtitle.title-default {
+	font-family: var(--thegem-to-menu-font-family, 'Montserrat');
+	font-style: var(--thegem-to-menu-font-style, normal);
+	font-weight: var(--thegem-to-menu-font-weight, 700);
+	font-size: var(--thegem-to-menu-font-size, 14px);
+	line-height: var(--thegem-to-menu-line-height, 25px);
+	letter-spacing: var(--thegem-to-menu-letter-spacing, 0);
+	text-transform: var(--thegem-to-menu-text-transform, uppercase);
+	color: var(--thegem-to-h6-color);
+}
+.gem-infobox-title.title-default.light,
+.gem-infobox-subtitle.title-default.light {
+	font-family: var(--thegem-to-light-title-font-family);
+	font-style: var(--thegem-to-light-title-font-style);
+	font-weight: normal;
+}
+.gem-infobox-title.text-body,
+.gem-infobox-subtitle.text-body {
+	font-family: var(--thegem-to-body-font-family);
+	font-style: var(--thegem-to-body-font-style);
+	font-weight: var(--thegem-to-body-font-weight);
+	font-size: var(--thegem-to-body-font-size);
+	line-height: var(--thegem-to-body-line-height);
+	letter-spacing: var(--thegem-to-body-letter-spacing);
+	text-transform: var(--thegem-to-body-text-transform);
+}
+.gem-infobox-title.text-body-tiny,
+.gem-infobox-subtitle.text-body-tiny {
+	font-family: var(--thegem-to-body-tiny-font-family);
+	font-style: var(--thegem-to-body-tiny-font-style);
+	font-weight: var(--thegem-to-body-tiny-font-weight);
+	font-size: var(--thegem-to-body-tiny-font-size);
+	line-height: var(--thegem-to-body-tiny-line-height);
+	letter-spacing: var(--thegem-to-body-tiny-letter-spacing);
+	text-transform: var(--thegem-to-body-tiny-text-transform);
+}
+
+.gem-infobox.width-link:hover .gem-infobox-content .gem-infobox-title,
+.gem-infobox.width-link:hover .gem-infobox-content .gem-infobox-subtitle {
+	color: var(--thegem-to-menu-level1-color-hover, #00BCD4) !important;
+}
