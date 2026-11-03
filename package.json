@@ -1,20 +1,14 @@
 {
   "name": "sila-tech",
-  "version": "1.0.0",
-  "description": "SILA TECH Main Website and Dynamic Reverse Proxy",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=20"
-  },
+  "version": "2.0.0",
+  "description": "SILA TECH website, admin panel and dynamic reverse proxy",
+  "main": "index.js",
+  "scripts": { "start": "node index.js" },
+  "engines": { "node": ">=20" },
   "dependencies": {
-    "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "express-session": "^1.18.2",
     "http-proxy-middleware": "^3.0.5",
     "mongoose": "^8.18.0",
     "multer": "^2.0.2"
