@@ -1,16 +1,8 @@
 {
-  "name": "sila-tech",
-  "version": "2.0.0",
-  "description": "SILA TECH website, admin panel and dynamic reverse proxy",
-  "main": "index.js",
+  "name": "silatech-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SILA TECH main website",
   "scripts": { "start": "node index.js" },
-  "engines": { "node": ">=20" },
-  "dependencies": {
-    "cookie-parser": "^1.4.7",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
-    "http-proxy-middleware": "^3.0.5",
-    "mongoose": "^8.18.0",
-    "multer": "^2.0.2"
-  }
+  "license": "UNLICENSED"
 }

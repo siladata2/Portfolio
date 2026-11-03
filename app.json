@@ -1,45 +1,6 @@
 {
-  "name": "Sila Tech Premium Website",
-  "description": "Professional portfolio for Sila Tech - Web Development, WhatsApp Bots, Cybersecurity & Ethical Hacking",
-  "repository": "https://github.com/Sila-Md/Portfolio",
-  "logo": "https://silatech.site/favicon.ico",
-  "keywords": ["node", "express", "portfolio", "tech", "cybersecurity", "whatsapp-bot", "web-development"],
-  "env": {
-    "EMAIL_USER": {
-      "description": "Your Gmail address for sending contact form emails",
-      "value": "silatrix22@gmail.com",
-      "required": true
-    },
-    "EMAIL_PASS": {
-      "description": "Gmail App Password (not your regular password)",
-      "value": "",
-      "required": true
-    },
-    "ADMIN_EMAIL": {
-      "description": "Email address to receive contact form submissions",
-      "value": "silatrix22@gmail.com",
-      "required": true
-    },
-    "PORT": {
-      "description": "Server port (Heroku sets automatically)",
-      "value": "8080",
-      "required": false
-    }
-  },
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    }
-  ],
-  "formation": {
-    "web": {
-      "quantity": 1,
-      "size": "basic"
-    }
-  },
-  "addons": [],
-  "scripts": {
-    "postdeploy": "echo 'Sila Tech deployed successfully!'"
-  },
-  "stack": "heroku-22"
+  "name": "SILA TECH",
+  "description": "SILA TECH main website",
+  "buildpacks": [{ "url": "heroku/nodejs" }],
+  "env": { "NODE_ENV": { "value": "production" } }
 }
